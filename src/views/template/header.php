@@ -1,3 +1,5 @@
 <header class="header">
-    <h1>GRANTS</h1>
+    <div class="container">
+        <h1>GRANTS</h1>        
+    </div>
 </header>

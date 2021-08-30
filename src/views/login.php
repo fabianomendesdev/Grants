@@ -1,3 +1,5 @@
 <main class="main">
-    <p>login</p>
+    <div class="container">
+        <p>login</p>        
+    </div>
 </main>
