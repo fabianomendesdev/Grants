@@ -16,7 +16,7 @@ div.container {
     width: 1170px;
     height: 100%;
     margin: auto;
-    background-color: royalblue;
+    /* background-color: royalblue; */
 }
 
 @media (max-width: 1170px){
@@ -112,4 +112,26 @@ body{
     grid-area: footer;
     background: linear-gradient(111.94deg, rgba(191, 38, 38, 0.85) 0%, rgba(185, 34, 41, 0.85) 26.56%, rgba(179, 30, 44, 0.85) 51.04%, rgba(173, 26, 47, 0.85) 77.6%, rgba(166, 23, 49, 0.85) 100%);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 1090px) {
+    .main > .container > .div-imglogin > img {
+        width: 25rem;
+    }
+}
+
+@media (max-width: 875px) {
+    .main > .container {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .main > .container > .div-login {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .main > .container > .div-imglogin {
+        margin-bottom: 5px; 
+    }
 }
