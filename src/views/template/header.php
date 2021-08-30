@@ -1,5 +1,5 @@
 <header class="header">
-    <div class="container">
+    <div class="container-md">
         <div class="div-logo">
             <a href="#"><img src="assets/img/logo.svg" alt="Logo" class="logo"></a>
         </div>

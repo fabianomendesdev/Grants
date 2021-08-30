@@ -5,7 +5,7 @@ function loadView($view){
 }
 
 
-function loadTemplateView($view){
+function loadTemplateView($view, $load = [], $title = "Grants"){
     require_once TEMPLATE_PATH."/top.php";
     require_once TEMPLATE_PATH."/header.php";
     loadView($view);
