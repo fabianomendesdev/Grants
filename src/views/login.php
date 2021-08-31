@@ -18,7 +18,7 @@
                 </div>
                 <div class="buttons">
                     <button class="btn bg-primary btn-login">Login</button>
-                    <button class="btn bg-secondary">Criar conta</button>
+                    <a href="#" class="btn bg-secondary">Criar conta</a>
                 </div>
             </form>
         </div>   

@@ -76,7 +76,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80px;
 }
 
 .header > .container-md > .widgets > a > .conversation {
@@ -97,6 +96,26 @@ body{
 .btn {
     color: var(--color6);
     font-size: 1.3rem;
+}
+
+::-webkit-scrollbar {
+    width: 13px;
+}
+::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #aeaeb5
+}
+::-webkit-scrollbar-thumb {
+    background: #dadae3;
+    border-radius: 10px;
+    border: 1px solid #aeaeb5
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #c4c4cc
+}
+::-webkit-scrollbar-thumb:active {
+    background: #aeaeb5
 }
 
 @media (max-width: 480px) {
