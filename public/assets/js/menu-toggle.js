@@ -5,7 +5,10 @@
     buttonToggle.onclick = function (e) {
         menuToggle.classList.toggle('toggle')
     }
+
     main.onclick = function (e) {
-        menuToggle.classList.toggle('toggle')
-    }
+        if(!menuToggle.classList.contains("toggle")){
+            menuToggle.classList.toggle('toggle')
+        }
+    }        
 })()
