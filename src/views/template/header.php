@@ -9,7 +9,12 @@
         <?php if($activationWidgets): ?>
             <div class="widgets">
                 <a href="#"><img src="assets/img/zondicons_conversation.svg" alt="Mensagem" class="conversation"></a>
-                <a href="#"><img src="assets/img/menu.svg" alt="menu"></a>
+                <nav class="toggle nav-toggle">
+                    <img src="assets/img/menu.svg" alt="menu" class="button-toggle">
+                    <div class="menu-toggle">
+                        <a href="logout.php" style="font-size: 30px; margin-left: 10px;">Sair</a>
+                    </div>
+                </nav>
             </div> 
         <?php endif ?>
     </div>

@@ -98,6 +98,24 @@ body{
     font-size: 1.3rem;
 }
 
+.nav-toggle img {
+    cursor: pointer;
+}
+
+.toggle .menu-toggle{
+    display: none;
+}
+
+.menu-toggle {
+    position: absolute;
+    top: 90px;
+    right: 0px;
+    width: 20%;
+    min-width: 200px;
+    height: calc(100vh - 110px);    
+    background-color: var(--color6);
+}
+
 ::-webkit-scrollbar {
     width: 13px;
 }
