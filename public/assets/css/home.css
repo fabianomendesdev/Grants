@@ -1,0 +1,96 @@
+.main .container-md {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.main .container-md a {
+    text-decoration: none;
+}
+
+.area {
+    width: 300px;
+    height: 304px;
+    position: relative;
+    min-width: 300px;
+    border-radius: 0px 50px;
+    padding: 5px;   
+    border: 5px solid var(--color6);
+    box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(111.94deg, rgba(191, 38, 38, 0.4) 0%, rgba(185, 34, 41, 0.4) 26.56%, rgba(179, 30, 44, 0.4) 51.04%, rgba(173, 26, 47, 0.4) 77.6%, rgba(166, 23, 49, 0.4) 100%);
+}
+
+.area p {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    color: var(--color6);
+    font-size: 26px;
+    margin-left: 5px;
+}
+
+.area img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.area-abstract img {
+    width: 268px;
+    height: 268px;
+}
+
+.area-activity {
+    margin: 0px 50px;
+}
+
+.area-activity img {
+    width: 214px;
+    height: 224px;
+}
+
+.area-classes img {
+    width: 254px;
+    height: 254px;
+}
+
+@media (max-width: 1199px) {
+    .area-abstract {
+        margin-right: 20px;
+    }
+    
+    .area-activity {
+        margin: 0px;
+        margin-left: 20px;
+    }
+
+    .area-classes {
+        margin: 25px;
+    }
+
+    .main .container-md {
+        justify-content: center;
+        padding-top: 20px;   
+    }
+}
+
+@media (max-width: 665px) {    
+    .main .container-md { 
+        padding: 25px 0;
+        flex-direction: column;
+    }
+
+    .area-abstract {
+        margin: 0px;
+    }
+    
+    .area-activity {
+        margin: 60px 0px;
+    }
+
+    .area { 
+        flex-basis: unset;
+        height: 304px;
+    }
+}
