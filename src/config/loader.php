@@ -1,5 +1,9 @@
 <?php
 
+function loadModel($model){
+    require_once MODEL_PATH."/".$model.'.php';
+}
+
 function loadView($view){
     require_once VIEW_PATH."/$view.php";
 }

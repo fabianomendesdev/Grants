@@ -7,11 +7,11 @@
             <form action="#" method="post">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Digite o seu email">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Digite o seu email">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="password" placeholder="Digite a sua senha">
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Digite a sua senha">
                 </div>
                 <div class="forgotPassword">
                     <a href="#">Esqueci a senha</a>
