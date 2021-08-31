@@ -7,8 +7,10 @@
             <h1>GRANTS</h1> 
         </div>   
         <div class="widgets">
-            <a href="#"><img src="assets/img/zondicons_conversation.svg" alt="Mensagem" class="conversation"></a>
-            <a href="#"><img src="assets/img/menu.svg" alt="menu"></a>
-        </div>    
+            <?php if($activationWidgets): ?>
+                <a href="#"><img src="assets/img/zondicons_conversation.svg" alt="Mensagem" class="conversation"></a>
+                <a href="#"><img src="assets/img/menu.svg" alt="menu"></a>
+            <?php endif ?>
+        </div> 
     </div>
 </header>

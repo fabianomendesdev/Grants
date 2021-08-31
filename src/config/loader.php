@@ -9,7 +9,7 @@ function loadView($view){
 }
 
 
-function loadTemplateView($view, $load = [], $title = "Grants"){
+function loadTemplateView($view, $load = [], $title = "Grants", $activationWidgets = false){
     require_once TEMPLATE_PATH."/top.php";
     require_once TEMPLATE_PATH."/header.php";
     loadView($view);

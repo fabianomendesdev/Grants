@@ -76,6 +76,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 80px;
 }
 
 .header > .container-md > .widgets > a > .conversation {

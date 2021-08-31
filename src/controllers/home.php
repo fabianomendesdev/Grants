@@ -1,6 +1,5 @@
-<h1>Logado</h1>
-<?php 
-    session_start();
-    requireValidSession();
-    var_dump($_SESSION['user']);
-?>
+<?php
+session_start();
+requireValidSession();
+
+loadTemplateView("home", ["load" => '<link rel="stylesheet" href="assets/css/home.css">'], "Grants: Home", true);
