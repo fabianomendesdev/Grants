@@ -50,6 +50,44 @@
     animation: float 6s ease-in-out infinite;
 }
 
+.invalid-feadback {
+    color: red;
+    background-color: var(--color6);
+    height: 30px;
+    margin: 0 5px;
+    padding: 2px 5px;
+    transform: translateY(0px);
+    animation: error 0.5s ease-in;
+}
+
+.invalid-feadback p {
+    margin: 0;
+    padding: 0;
+}
+
+.loginMessage {
+    margin: 0;
+    margin-bottom: 8px;
+    background-color: var(--color6);
+    padding: 5px 5px;
+}
+
+.loginMessage p {
+    margin: 0;
+    padding: 0;
+    color: red;
+}
+
+@keyframes error {
+    0% {
+        transform: translateY(-40px);
+    }
+    
+    100% {
+        transform: translateY(-0px);
+    }
+}
+
 @keyframes float {
     0% {
         transform: translateY(0px);

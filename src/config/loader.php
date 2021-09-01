@@ -4,14 +4,17 @@ function loadModel($model){
     require_once MODEL_PATH."/".$model.'.php';
 }
 
-function loadView($view){
+function loadView($view, $message, $errors){
     require_once VIEW_PATH."/$view.php";
 }
 
+function loadExceptions($message, $errors = []){
 
-function loadTemplateView($view, $load = [], $title = "Grants", $activationWidgets = false){
+}
+
+function loadTemplateView($view, $title = "Grants", $load = [], $activationWidgets = false, $message = '', $errors = []){
     require_once TEMPLATE_PATH."/top.php";
     require_once TEMPLATE_PATH."/header.php";
-    loadView($view);
+    loadView($view, $message, $errors);
     require_once TEMPLATE_PATH."/footer.php";
 }
