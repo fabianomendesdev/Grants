@@ -33,8 +33,8 @@
                 </div>
                 <div class="buttons">
                     <button class="btn bg-primary btn-login">Login</button>
-                    <a href="#" class="btn bg-secondary">Criar conta</a>
-                </div>
+                    <a href="register.php" class="btn bg-secondary">Criar conta</a>
+                </div>  
             </form>
         </div>   
     </div>

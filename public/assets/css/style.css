@@ -10,6 +10,9 @@
     --color4: #BF4E24;
     --color5: #BF2626;
     --color6: #FFF;
+    --gradient2: linear-gradient(111.94deg, rgba(191, 38, 38, 0.85) 0%, rgba(185, 34, 41, 0.85) 26.56%, rgba(179, 30, 44, 0.85) 51.04%, rgba(173, 26, 47, 0.85) 77.6%, rgba(166, 23, 49, 0.85) 100%);
+    --gradient3: linear-gradient(111.94deg, rgba(191, 38, 38, 0.9) 0%, rgba(185, 34, 41, 0.9) 26.56%, rgba(179, 30, 44, 0.9) 51.04%, rgba(173, 26, 47, 0.9) 77.6%, rgba(166, 23, 49, 0.9) 100%);
+    box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.25);
 }
 
 .container-md {
@@ -33,7 +36,7 @@ body{
 
 .header {
     grid-area: header;
-    background-image: linear-gradient(111.94deg, rgba(191, 38, 38, 0.85) 0%, rgba(185, 34, 41, 0.85) 26.56%, rgba(179, 30, 44, 0.85) 51.04%, rgba(173, 26, 47, 0.85) 77.6%, rgba(166, 23, 49, 0.85) 100%);
+    background-image: var(--gradient2);
     z-index: 10;
     box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
 }
@@ -84,12 +87,12 @@ body{
 
 .main {
     grid-area: main;
-    background: linear-gradient(111.94deg, rgba(191, 38, 38, 0.85) 0%, rgba(185, 34, 41, 0.85) 26.56%, rgba(179, 30, 44, 0.85) 51.04%, rgba(173, 26, 47, 0.85) 77.6%, rgba(166, 23, 49, 0.85) 100%);
+    background-image: var(--gradient2);
 }
 
 .footer {
     grid-area: footer;
-    background: linear-gradient(111.94deg, rgba(191, 38, 38, 0.85) 0%, rgba(185, 34, 41, 0.85) 26.56%, rgba(179, 30, 44, 0.85) 51.04%, rgba(173, 26, 47, 0.85) 77.6%, rgba(166, 23, 49, 0.85) 100%);
+    background-image: var(--gradient2);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
 }
 

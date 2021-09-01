@@ -1,0 +1,14 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 0;
+}
+
+.main .container-md {
+    max-width: 539px;   
+    min-width: 0px;
+    background-image: var(--gradient3); 
+    box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
