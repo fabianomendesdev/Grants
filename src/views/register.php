@@ -126,7 +126,7 @@
             
             <div class="buttons">
                 <button class="btn bg-primary btn-login">Criar Conta</button>
-                <a href="login.php" class="btn bg-secondary btn-secondary">Voltar</a>
+                <a href="login.php" class="btn bg-secondary btn-back">Voltar</a>
             </div>
         </form>
     </div>
