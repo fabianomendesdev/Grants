@@ -7,6 +7,7 @@ $message = '';
 $errors = [];
 
 if(isset($_POST['email']) && isset($_POST['password'])){
+    unset($_GET);
     try{
         $login = new Login(['email' => $_POST['email'], 'password' => $_POST['password']]);
         $login->validate();

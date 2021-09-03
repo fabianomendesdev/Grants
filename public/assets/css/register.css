@@ -1,14 +1,76 @@
+.invalid-feadback > p {
+    background-color: var(--color6);
+    padding: 2px 5px;
+    color: red;
+}
+
 .main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 120px 0;
+    box-shadow: unset;
 }
 
-.main .container-md {
+.main .container-md{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+}
+
+.main .form {
+    padding: 15px 20px;
     max-width: 539px;   
-    min-width: 0px;
+    min-width: 0px; 
     background-image: var(--gradient3); 
     box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
+}
+
+.fieldset {
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px solid;
+    border-radius: 10px;
+    border-collapse: unset;
+    border-color: var(--color6);
+}
+
+.fieldset .inputs {
+    display: flex;
+    align-items: center;
+}
+
+.fieldset .inputs div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fieldset .inputs input {
+    width: 18px;
+    height: 18px;
+}
+
+.fieldset .inputs div label {
+    margin-left: 10px;
+}
+
+/* .fieldset .inputs div input {
+ 
+} */
+
+.margin {
+    margin-left: 15px;
+}
+
+.form legend,label {
+    font-size: 18px;
+}
+
+.btn-secondary {
+    margin-left: 30px;
 }
