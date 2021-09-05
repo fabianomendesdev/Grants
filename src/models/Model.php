@@ -74,4 +74,21 @@ class Model {
             return $value;
         }
     }
+
+    public function insert(){
+        $sql = "INSERT INTO ".static::$tableName." (";
+        foreach(static::$columns as $value){
+            $sql .= "$value,";
+        }
+        $sql[strlen($sql)-1] = ")";
+        $sql .= " VALUES (DEFAULT,";
+        foreach(static::$columns as $value){
+            if($value !== 'id'){
+                $sql .= static::getFormatedValue($this->$value).",";
+            }
+        }
+        $sql[strlen($sql)-1] = ")";
+        $id = Database::executeSQL($sql);
+        $this->id = $id;
+    }
 }
