@@ -12,7 +12,17 @@
                 <nav class="toggle nav-toggle">
                     <img src="assets/img/menu.svg" alt="menu" class="button-toggle">
                     <div class="menu-toggle">
-                        <a href="logout.php" style="font-size: 30px; margin-left: 10px;">Sair</a>
+                        <div class="imgAndUsername">
+                            <img src="assets/img/default_male_avatar.png" alt="Foto do perfil">
+                            <p><?= isset($_SESSION['user']) ? $_SESSION['user']->name : "Usuário" ?></p>
+                        </div>
+                        <ul class="menu-list">
+                            <li><a href="#">Editar perfil</a></li>
+                            <li><a href="#">Gerenciar Conta</a></li>
+                            <li><a href="#">Quem somos ?</a></li>
+                            <li><a href="#">Chat</a></li>
+                            <li><a href="logout.php"><i class="icofont-logout"></i>Sair</a></li>
+                        </ul>
                     </div>
                 </nav>
             </div> 

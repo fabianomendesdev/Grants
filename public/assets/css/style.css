@@ -119,6 +119,45 @@ body{
     min-width: 200px;
     height: calc(100vh - 110px);    
     background-color: var(--color6);
+    padding: 15px;
+}
+
+.menu-toggle .imgAndUsername {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 0.6px solid black;
+}
+
+.menu-toggle .imgAndUsername img {
+    height: 54px;
+}
+
+.menu-toggle .imgAndUsername p {
+    font-size: 26px;
+    margin: 0;
+    margin-left: 15px;
+}
+
+.menu-list {
+    margin-top: 30px;
+    padding: 0px;
+    list-style: none;
+}
+
+.menu-list li i {
+    margin-right: 5px;
+    /* font-size: 1.5rem; */
+}
+
+.menu-list li a {
+    font-size: 21px;
+    text-decoration: none;
+    color: var(--color7);
+}
+
+.menu-list li a:hover {
+    text-decoration: underline;
 }
 
 ::-webkit-scrollbar {

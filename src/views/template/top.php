@@ -7,6 +7,8 @@
     <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/icofont.css">
+    <link rel="stylesheet" href="assets/css/icofont.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <?php 
         if(isset($load)){

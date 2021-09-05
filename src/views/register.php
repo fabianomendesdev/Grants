@@ -79,7 +79,7 @@
                         <legend>Sexo:</legend>
                         <div class="inputs">
                             <div>
-                                <input type="radio" name="sex" id="women" value="F" <?= !isset($_POST['sex']) || $_POST['sex'] == 'F' ? 'checked' : '' ?>/> <label for="women">F</label> <br/>
+                                <input type="radio" name="sex" id="female" value="F" <?= !isset($_POST['sex']) || $_POST['sex'] == 'F' ? 'checked' : '' ?>/> <label for="female">F</label> <br/>
                             </div>
                             <div class="margin">
                                 <input type="radio" name="sex" id="male" value="M" <?= isset($_POST['sex']) && $_POST['sex'] == 'M' ? 'checked' : '' ?>/> <label for="male">M</label>
