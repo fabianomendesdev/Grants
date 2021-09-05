@@ -17,7 +17,7 @@
                             <p><?= isset($_SESSION['user']) ? $_SESSION['user']->name : "Usuário" ?></p>
                         </div>
                         <ul class="menu-list">
-                            <li><a href="#">Editar perfil</a></li>
+                            <li><a href="editProfile.php">Editar perfil</a></li>
                             <li><a href="#">Gerenciar Conta</a></li>
                             <li><a href="#">Quem somos ?</a></li>
                             <li><a href="#">Chat</a></li>
