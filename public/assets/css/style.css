@@ -131,6 +131,7 @@ body{
 
 .menu-toggle .imgAndUsername img {
     height: 54px;
+    border-radius: 50%;
 }
 
 .menu-toggle .imgAndUsername p {

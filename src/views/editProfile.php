@@ -2,8 +2,10 @@
     <div class="container-md">
         <section class="section-editProfile">
             <div class="imgAndUsername">
-                <img src="assets/img/default_male_avatar.png" alt="Foto do perfil">
+                <input type="file" name="" id="testImg" style="display: none;">
+                <label for="testImg"><div class="div-img"><div class="div-iconUpload"></div></div></label>
                 <p><?= $_SESSION['user']->name ?></p>
+                <!-- <img src="assets/img/default_male_avatar.png" alt="Foto do perfil"> -->
             </div>
             <form action="#" method="post" class="form">
                 <div class="form-row">
