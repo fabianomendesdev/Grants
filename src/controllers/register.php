@@ -3,17 +3,13 @@ session_start();
 validSession();
 $message = '';
 $errors = [];
-require_once(EXCEPTION_PATH."/RegisterException.php");
-loadModel('Register');
 
 if(verify()){
     try{
-        $register = new Register($_POST);
-        $register->validate();
-        $user = new User($register->getFormattedData());
+        $user = new User($_POST);
         $user->insert();    
-        header("Location: login.php?email={$_POST['email']}");
-    }catch(RegisterException $e){
+        header("Location: login.php?email={$user->email}");
+    }catch(AppArrayException $e){
         $errors = $e->getErrors();
     }
 }

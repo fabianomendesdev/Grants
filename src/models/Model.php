@@ -77,18 +77,33 @@ class Model {
 
     public function insert(){
         $sql = "INSERT INTO ".static::$tableName." (";
-        foreach(static::$columns as $value){
-            $sql .= "$value,";
+        foreach(static::$columns as $column){
+            $sql .= "$column,";
         }
         $sql[strlen($sql)-1] = ")";
         $sql .= " VALUES (DEFAULT,";
-        foreach(static::$columns as $value){
-            if($value !== 'id'){
-                $sql .= static::getFormatedValue($this->$value).",";
+        foreach(static::$columns as $column){
+            if($column !== 'id'){
+                $sql .= static::getFormatedValue($this->$column).",";
             }
         }
         $sql[strlen($sql)-1] = ")";
         $id = Database::executeSQL($sql);
         $this->id = $id;
+    }
+
+    public function update(){
+        $sql = "UPDATE ". static::$tableName. " SET ";
+        foreach (static::$columns as $column){
+            if(!is_null($this->$column) && $column != "id"){
+                $sql .= "$column = " . static::getFormatedValue($this->$column).",";
+            }
+        }
+
+        $sql[strlen($sql)-1] = " ";
+        $sql .=  " WHERE id = '{$this->id}' LIMIT 1";
+        $id = $this->id;
+        Database::executeSQL($sql);
+        return static::getOne(['id' => $id]);
     }
 }

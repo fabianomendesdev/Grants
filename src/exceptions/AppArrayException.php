@@ -1,6 +1,6 @@
 <?php
 
-class RegisterException extends AppException {
+class AppArrayException extends AppException {
     function __construct($errors = [],$message = "Erro de validação"){
         parent:: __construct($message);
         $this->errors = $errors;

@@ -2,7 +2,6 @@
 loadModel('Login');
 session_start();
 validSession();
-require_once(EXCEPTION_PATH."/LoginException.php");
 $message = '';
 $errors = [];
 
@@ -14,7 +13,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         $user = $login->checkLogin();
         $_SESSION['user'] = $user;
         header("Location: home.php");
-    }catch(LoginException $e){  
+    }catch(AppArrayException $e){  
         $errors = $e->getErrors();
     }catch(AppException $e){
         $message = $e->getMessage();
