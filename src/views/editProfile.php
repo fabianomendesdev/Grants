@@ -1,13 +1,19 @@
 <main class="main">
     <div class="container-md">
         <section class="section-editProfile">
-            <div class="imgAndUsername">
-                <input type="file" name="" id="testImg" style="display: none;">
-                <label for="testImg"><div class="div-img"><div class="div-iconUpload"></div></div></label>
-                <p><?= $_SESSION['user']->name ?></p>
-                <!-- <img src="assets/img/default_male_avatar.png" alt="Foto do perfil"> -->
+            <form action="#" method="post" class="form" enctype="multipart/form-data">
+            <div class="errorAndImg">
+                <div class="imgAndUsername">
+                    <input type="file" name="photo" id="photo" style="display: none;">
+                    <label for="photo"><div class="div-img"><div class="div-iconUpload"></div></div></label>
+                    <p><?= $_SESSION['user']->name ?></p>
+                </div>
+                <?php if(isset($errors['photo'])): ?>
+                    <div class="div-errorPhoto">
+                        <p><?= $errors['photo'] ?></p>
+                    </div>
+                <?php endif ?>
             </div>
-            <form action="#" method="post" class="form">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Nome</label>

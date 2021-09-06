@@ -2,11 +2,16 @@
 session_start();
 requireValidSession();
 session_regenerate_id();
+require_once API_PATH."/saveImg.php";
 $errors = [];
 
 if(verify()){
+    $file = $_FILES['photo'];
     try{
         $user = new User(['id' => $_SESSION['user']->id]+$_POST);
+        if(isset($file['name']) && isset($file['type']) && isset($file['tmp_name']) && !$file['error']){
+            saveImgByfile($file);
+        }
         $_SESSION['user'] = $user->updateEditProfile();
     } catch (AppArrayException $e){
         $errors = $e->getErrors();

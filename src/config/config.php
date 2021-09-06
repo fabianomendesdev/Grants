@@ -8,6 +8,7 @@ define('TEMPLATE_PATH', realpath(dirname(__FILE__) . '/../views/template'));
 define('CONTROLLER_PATH', realpath(dirname(__FILE__) . '/../controllers'));
 define('MODEL_PATH', realpath(dirname(__FILE__) . '/../models'));
 define('EXCEPTION_PATH', realpath(dirname(__FILE__) . '/../exceptions'));
+define('API_PATH', realpath(dirname(__FILE__) . '/../api'));
 
 // Arquivos
 require_once(realpath(dirname(__FILE__))."/loader.php");
