@@ -6,7 +6,7 @@
                     <div class="imgAndUsername">
                         <input type="file" name="photo" id="photo" style="display: none;">
                         <label for="photo"><div class="div-img" style="background-image: url('getImg.php?photo=<?= $_SESSION['user']->photo ?>');"><div class="div-iconUpload"></div></div></label>
-                        <p><?= $_SESSION['user']->name ?></p>
+                        <p><?= isset($_SESSION['user']) ? (strlen($_SESSION['user']->name) > 17 ? substr($_SESSION['user']->name, 0 , 15).trim(substr($_SESSION['user']->name, 15 , 2))."..." : $_SESSION['user']->name) : "Usuário" ?></p>
                     </div>
                     <?php if(isset($errors['photo'])): ?>
                         <div class="div-errorPhoto">

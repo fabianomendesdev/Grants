@@ -14,7 +14,7 @@
                     <div class="menu-toggle">
                         <div class="imgAndUsername">
                             <a href="editProfile.php"><div class="img-menu" style="background-image: url(getImg.php?photo=<?= $_SESSION['user']->photo ?>);"></div></a>
-                            <p><?= isset($_SESSION['user']) ? $_SESSION['user']->name : "Usuário" ?></p>
+                            <p><?= isset($_SESSION['user']) ? (strlen($_SESSION['user']->name) > 15 ? substr($_SESSION['user']->name, 0 , 13).trim(substr($_SESSION['user']->name, 13 , 2))."..." : $_SESSION['user']->name) : "Usuário" ?></p>
                         </div>
                         <ul class="menu-list">
                             <li><a href="editProfile.php">Editar perfil</a></li>
