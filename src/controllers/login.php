@@ -20,4 +20,4 @@ if(isset($_POST['email']) && isset($_POST['password'])){
     }
 }
 
-loadTemplateView("login", "Grants: Login", ['<link rel="stylesheet" href="assets/css/login.css">'], false, $message, $errors);
+loadTemplateView("login", "Grants: Login", ['login'], [], false, $message, $errors);

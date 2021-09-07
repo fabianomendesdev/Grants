@@ -24,4 +24,4 @@ function verify(){
     return true;
 }
 
-loadTemplateView("register", "Grants: Criar Conta", ['<link rel="stylesheet" href="assets/css/register.css">'], false, $message, $errors);
+loadTemplateView("register", "Grants: Criar Conta", ['register'], [], false, $message, $errors);

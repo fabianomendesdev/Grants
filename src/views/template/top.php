@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="assets/css/icofont.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <?php 
-        if(isset($load)){
-            foreach($load as $value){
-                echo $value;
+        if(!empty($loadCss)){
+            foreach($loadCss as $value){
+                echo "<link rel='stylesheet' href='assets/css/$value.css'>";
             }
         }
     ?>

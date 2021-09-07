@@ -12,7 +12,7 @@ function loadExceptions($message, $errors = []){
 
 }
 
-function loadTemplateView($view, $title = "Grants", $load = [], $activationWidgets = false, $message = '', $errors = []){
+function loadTemplateView($view, $title = "Grants", $loadCss = [], $loadJs = [], $activationWidgets = false, $message = '', $errors = []){
     require_once TEMPLATE_PATH."/top.php";
     require_once TEMPLATE_PATH."/header.php";
     loadView($view, $message, $errors);

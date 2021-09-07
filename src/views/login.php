@@ -12,7 +12,7 @@
                             <p><?= $message ?></p>
                         </div>
                     <?php endif ?>
-                    <input type="email" <?= isset($errors['email']) ? 'style="border-width: 5px;"' : '' ?> class="form-control <?= isset($errors['email']) ? "is-invalid " : '' ?>" name="email" id="email" placeholder="Digite o seu email" value="<?= isset($_POST['email']) ? $_POST['email'] : (isset($_GET['email']) ? $_GET['email'] : '') ?>">
+                    <input type="email"  <?= isset($errors['email']) ? 'style="border-width: 5px;"' : '' ?> class="form-control <?= isset($errors['email']) ? "is-invalid " : '' ?>" name="email" id="email" placeholder="Digite o seu email" value="<?= isset($_POST['email']) ? $_POST['email'] : (isset($_GET['email']) ? $_GET['email'] : '') ?>">
                     <?php if(isset($errors['email'])): ?>
                         <div class="invalid-feadback">
                             <p><?= $errors['email'] ?? '' ?></p>
