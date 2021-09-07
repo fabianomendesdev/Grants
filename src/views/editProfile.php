@@ -2,18 +2,23 @@
     <div class="container-md">
         <section class="section-editProfile">
             <form action="#" method="post" class="form" enctype="multipart/form-data">
-            <div class="errorAndImg">
-                <div class="imgAndUsername">
-                    <input type="file" name="photo" id="photo" style="display: none;">
-                    <label for="photo"><div class="div-img" style="background-image: url('getImg.php?photo=<?= $_SESSION['user']->photo ?>');"><div class="div-iconUpload"></div></div></label>
-                    <p><?= $_SESSION['user']->name ?></p>
+                <div class="errorAndImg">
+                    <div class="imgAndUsername">
+                        <input type="file" name="photo" id="photo" style="display: none;">
+                        <label for="photo"><div class="div-img" style="background-image: url('getImg.php?photo=<?= $_SESSION['user']->photo ?>');"><div class="div-iconUpload"></div></div></label>
+                        <p><?= $_SESSION['user']->name ?></p>
+                    </div>
+                    <?php if(isset($errors['photo'])): ?>
+                        <div class="div-errorPhoto">
+                            <p><?= $errors['photo'] ?></p>
+                        </div>
+                    <?php endif ?>
                 </div>
-                <?php if(isset($errors['photo'])): ?>
-                    <div class="div-errorPhoto">
-                        <p><?= $errors['photo'] ?></p>
+                <?php if($message != ''): ?>
+                    <div class="editProfileSuccess">
+                        <p><?= $message ?></p>
                     </div>
                 <?php endif ?>
-            </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Nome</label>

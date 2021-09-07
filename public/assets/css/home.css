@@ -149,5 +149,57 @@
     .area { 
         flex-basis: unset;
         height: 304px;
+        transform: scale(1);
+        animation: areaRotate 3s ease-in-out;
+    }
+
+    @keyframes areaRotate {
+        0% {
+            transform: rotate(-400deg);
+            opacity: 0%;
+            height: 280px;
+        }
+        
+        10% {
+            transform: rotate(150deg);  
+            opacity: 50%;
+        }
+        
+        20% {
+            transform: rotate(-80deg);  
+            opacity: 100%;
+        }
+        
+        30% {
+            transform: rotate(50deg);  
+        }
+        
+        40% {
+            transform: rotate(-20deg);  
+        }
+        
+        50% {
+            transform: rotate(15deg);  
+        }
+        
+        60% {
+            transform: rotate(-10deg);  
+        }
+        
+        70% {
+            transform: rotate(8deg);  
+        }
+        
+        80% {
+            transform: rotate(-5deg);  
+        }
+        
+        90% {
+            transform: rotate(2deg);  
+        }
+        
+        100% {
+            transform: rotate(0deg);
+        } 
     }
 }

@@ -37,4 +37,4 @@ function verify(){
     return true;
 }
 
-loadTemplateView("editProfile", "Grants: Editar Perfil", ["load" => '<link rel="stylesheet" href="assets/css/editProfile.css">'], true, '', $errors);
+loadTemplateView("editProfile", "Grants: Editar Perfil", ["load" => '<link rel="stylesheet" href="assets/css/editProfile.css">'], true, $message, $errors);

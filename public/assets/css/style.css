@@ -213,7 +213,8 @@ body{
         font-size: 50px;
     }
 
-    .header > .container-md > .div-logo {
-        height: 70%;
+    .header > .container-md > .div-logo > a > .logo {
+        margin-top: unset;
+        height: 60px;
     }
 }
