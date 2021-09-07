@@ -129,9 +129,13 @@ body{
     border-bottom: 0.6px solid black;
 }
 
-.menu-toggle .imgAndUsername img {
+.menu-toggle .imgAndUsername .img-menu {
     height: 54px;
+    width: 54px;
     border-radius: 50%;
+    background-color: #DDD;
+    background-size: cover;
+    background-position: center;
 }
 
 .menu-toggle .imgAndUsername p {
