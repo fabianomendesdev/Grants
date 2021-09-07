@@ -3,7 +3,7 @@
         <!-- <a href="https://storyset.com/education">Education illustrations by Storyset</a> -->
     </div>
 </footer>
-<!-- <script src="assets/js/script.js"></script> -->
+<script src="assets/js/script.js"></script>
 <?php 
     if(!empty($loadJs)){
         foreach($loadJs as $value){
