@@ -110,7 +110,7 @@ class User extends Model {
             $errors['series'] = "Preencha o campo corretamente";
         }
         
-        if($this->sexValidate()){
+        if(!$this->sexValidate()){
             $errors['sex'] = "Preencha o campo corretamente";
         }
         
@@ -174,6 +174,11 @@ class User extends Model {
         }
         
         if($this->year < (intval(date('Y')) - 51) || $this->year > intval(date('Y'))){
+            return false;
+        }
+
+        $date = new DateTime($this->getFormattedDate());
+        if($this->getFormattedDate() !== date("Y-m-d", $date->getTimestamp())){
             return false;
         }
         
