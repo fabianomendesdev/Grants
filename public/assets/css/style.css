@@ -85,8 +85,16 @@ body{
     align-items: center;
 }
 
-.header > .container-md > .widgets > a > .conversation {
+.header > .container-md > .widgets .conversation {
     margin-right: 22px;
+}
+
+.header > .container-md > .widgets .conversation:hover {
+    transform: scale(0.99);
+}
+
+.header > .container-md > .widgets .conversation:active {
+    transform: scale(0.96);
 }
 
 .main {
@@ -104,6 +112,14 @@ body{
 .btn {
     color: var(--color6);
     font-size: 1.3rem;
+}
+
+.header > .container-md > .widgets .button-toggle:hover {
+    transform: scale(0.99);
+}
+
+.header > .container-md > .widgets .button-toggle:active {
+    transform: scale(0.96);
 }
 
 .nav-toggle img {

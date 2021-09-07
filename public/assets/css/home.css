@@ -19,6 +19,63 @@
     border: 5px solid var(--color6);
     box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.25);
     background: linear-gradient(111.94deg, rgba(191, 38, 38, 0.4) 0%, rgba(185, 34, 41, 0.4) 26.56%, rgba(179, 30, 44, 0.4) 51.04%, rgba(173, 26, 47, 0.4) 77.6%, rgba(166, 23, 49, 0.4) 100%);
+    transform: rotate(0deg);
+    transform: scale(1);
+    animation: areaRotate 3s ease-in-out;
+}  
+
+
+@keyframes areaRotate {
+    0% {
+        transform: rotate(-400deg);
+        opacity: 0%;
+    }
+    
+    10% {
+        transform: rotate(150deg);  
+        opacity: 50%;
+    }
+    
+    20% {
+        transform: rotate(-80deg);  
+        opacity: 100%;
+    }
+    
+    30% {
+        transform: rotate(50deg);  
+    }
+    
+    40% {
+        transform: rotate(-20deg);  
+    }
+    
+    50% {
+        transform: rotate(15deg);  
+    }
+    
+    60% {
+        transform: rotate(-10deg);  
+    }
+    
+    70% {
+        transform: rotate(8deg);  
+    }
+    
+    80% {
+        transform: rotate(-5deg);  
+    }
+    
+    90% {
+        transform: rotate(2deg);  
+    }
+    
+    100% {
+        transform: rotate(0deg);
+    } 
+}
+
+.area:hover {
+    transform: scale(0.99);
 }
 
 .area p {

@@ -13,8 +13,7 @@
                     <img src="assets/img/menu.svg" alt="menu" class="button-toggle">
                     <div class="menu-toggle">
                         <div class="imgAndUsername">
-                            <div class="img-menu" style="background-image: url(getImg.php?photo=<?= $_SESSION['user']->photo ?>);">
-                            </div>
+                            <a href="editProfile.php"><div class="img-menu" style="background-image: url(getImg.php?photo=<?= $_SESSION['user']->photo ?>);"></div></a>
                             <p><?= isset($_SESSION['user']) ? $_SESSION['user']->name : "Usuário" ?></p>
                         </div>
                         <ul class="menu-list">

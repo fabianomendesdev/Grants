@@ -120,7 +120,8 @@
     }
     
     .main > .container-md > .div-imglogin {
-        margin-bottom: 5px; 
+        margin-top: 30px;
+        margin-bottom: 15px; 
     }
 }
 
