@@ -8,10 +8,10 @@ $errors = [];
 if(verify()){
     $file = $_FILES['photo'];
     try{
-        $user = new User(['id' => $_SESSION['user']->id]+$_POST);
         if(isset($file['name']) && isset($file['type']) && isset($file['tmp_name']) && !$file['error']){
-            saveImgByfile($file);
+            $namePhoto = saveImgByfile($file);
         }
+        $user = new User(['id' => $_SESSION['user']->id, 'photo' => $namePhoto]+$_POST);
         $_SESSION['user'] = $user->updateEditProfile();
     } catch (AppArrayException $e){
         $errors = $e->getErrors();

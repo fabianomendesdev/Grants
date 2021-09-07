@@ -20,6 +20,7 @@ function saveImgByFile(&$fileImg){
         
         if(move_uploaded_file($tmp, $file)){
             unset($fileImg);
+            return $nameFile;
         } else {
             throw new AppArrayException(['photo' => 'Falha ao salvar a imagem!']);
         }

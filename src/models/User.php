@@ -2,7 +2,7 @@
 
 class User extends Model {
     protected static $tableName = 'users';
-    protected static $columns = ['id','name','birth', 'series', 'sex','password','email','active','is_admin'];    
+    protected static $columns = ['id','name','birth', 'series', 'sex','password','email','photo','active','is_admin'];    
     
     public function insert(){
         $this->validateRegister();
