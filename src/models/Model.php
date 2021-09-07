@@ -11,14 +11,18 @@ class Model {
 
     function loadFromArray($arr){
         if(isset($arr)){
+            $conn = Database::getConnection();
             foreach($arr as $key => $value){
                 $cleanValue = $value;
                 if(isset($cleanValue)){
                     $cleanValue = strip_tags(trim($cleanValue));
-                    $cleanValue = htmlentities($cleanValue, ENT_NOQUOTES);
+                    $cleanValue = htmlspecialchars($cleanValue);
+                    $cleanValue = mysqli_real_escape_string($conn, $cleanValue);
+                    $cleanValue = str_replace(array("<","WHERE","where",">","=","?"), "", $cleanValue);
                 }
                 $this->$key = $cleanValue;
             }
+            $conn->close();
         }
     }
 
