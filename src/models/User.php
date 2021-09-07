@@ -9,6 +9,19 @@ class User extends Model {
         $this->active = $this->active ? 0 : 1;
         $this->is_admin = $this->is_admin ? 1 : 0;
         $this->birth = $this->getFormattedDate();
+        switch($this->sex){
+            case "F": 
+                $this->photo = "default_female.png";
+                break;
+            case "M":
+                $this->photo = "default_male.png";
+                break;
+            case "O":
+                $this->photo = null;
+                break;
+            default:
+                $this->photo = null;
+        }
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
         parent:: insert();
     }

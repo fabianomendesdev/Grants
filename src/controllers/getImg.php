@@ -9,14 +9,15 @@ if($_SESSION['user']->photo === $photo){
         case "png":
             header ("Content-type: image/png");
             $image = imagecreatefrompng(IMG_PATH."/". $photo);
+            imagepng($image);            
             break;
         case "jpg":
             header ("Content-type: image/jpg");
             $image = imagecreatefromjpeg(IMG_PATH."/". $photo);
+            imagejpeg($image); 
             break;
     }
     
-    imagepng($image);
 }else{
     echo "erro";
 }

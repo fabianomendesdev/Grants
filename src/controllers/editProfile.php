@@ -2,17 +2,23 @@
 session_start();
 requireValidSession();
 session_regenerate_id();
-require_once API_PATH."/saveImg.php";
+require_once API_PATH."/UploadImagem.php";
 $errors = [];
+$message;
 
 if(verify()){
     $file = $_FILES['photo'];
     try{
-        if(isset($file['name']) && isset($file['type']) && isset($file['tmp_name']) && !$file['error']){
-            $namePhoto = saveImgByfile($file);
+        $namePhoto;
+        if(!empty($file) && !$file['error']){
+            $upload = new UploadImagem();
+            $upload->width = 250;
+            $upload->height = 250;
+            $namePhoto = $upload->salvar(IMG_PATH."/", $file);
         }
         $user = new User(['id' => $_SESSION['user']->id, 'photo' => $namePhoto]+$_POST);
         $_SESSION['user'] = $user->updateEditProfile();
+        $message = "Modificações salvas";
     } catch (AppArrayException $e){
         $errors = $e->getErrors();
     }
