@@ -18,7 +18,6 @@
 
 .container-md {
     height: 100%;
-    /* background-color: indigo; */
 }
 
 body{
@@ -48,15 +47,19 @@ body{
 }
 
 .header > .container-md > .div-logo {
-    height: 100%;
-}
-
-.header > .container-md > .div-logo > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
 }
 
 .header > .container-md > .div-logo > a > .logo {
-    height: 100%;
+    margin-top: 5px;
+    height: 90px;
+}
+
+.header > .container-md > .div-logo > a > .logo:hover {
+    transform: scale(0.98);
 }
 
 .header > .container-md > .div-title {
@@ -152,7 +155,6 @@ body{
 
 .menu-list li i {
     margin-right: 5px;
-    /* font-size: 1.5rem; */
 }
 
 .menu-list li a {

@@ -28,7 +28,7 @@ class Login extends Model {
         }
 
         if(count($errors) > 0){
-            throw new LoginException($errors);
+            throw new AppArrayException($errors);
         }
     }
 }
