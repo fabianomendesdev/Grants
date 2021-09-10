@@ -11,8 +11,8 @@
                         <label for="email">E-mail</label>
                         <div class="form-control div-formControl">
                             <input type="text" style="border: none; box-shadow: none;" class="form-control <?= isset($errors['email']) ? 'is-invalid' : '' ?>" name="email" id="email" placeholder="E-mail" value="<?= isset($errors['email']) ? $_POST['email'] : $_SESSION['user']->email ?>">
-                            <button class="buttonModifyEmail">
-                            </button>
+                            <abbr title="Alterar email"><button class="buttonModifyEmail">
+                            </button></abbr>
                             <?php if(isset($errors['email'])): ?>
                                 <div class="invalid-feadback">
                                     <p><?= $errors['email'] ?></p>

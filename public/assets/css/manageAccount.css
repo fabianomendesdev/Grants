@@ -67,6 +67,11 @@ form label {
     padding-right: 5px;
 }
 
+.div-formControl abbr {
+    display: flex;
+    align-items: center;
+}
+
 .div-formControl .buttonModifyEmail {
     width: 24px;
     height: 24px;
