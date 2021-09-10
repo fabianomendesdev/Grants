@@ -92,8 +92,8 @@
                 </div>
 
                 <div class="buttons">
-                    <button class="btn bg-primary btn-save">Salvar</button>
-                    <a href="editProfile.php" class="btn bg-secondary btn-cancel">Cancelar</a>
+                    <button class="btn btn-primary btn-save">Salvar</button>
+                    <a href="editProfile.php" class="btn btn-secondary btn-cancel">Cancelar</a>
                 </div>
             </form>
         </section>

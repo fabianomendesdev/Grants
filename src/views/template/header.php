@@ -18,7 +18,7 @@
                         </div>
                         <ul class="menu-list">
                             <li><a href="editProfile.php">Editar perfil</a></li>
-                            <li><a href="#">Gerenciar Conta</a></li>
+                            <li><a href="manageAccount.php">Gerenciar Conta</a></li>
                             <li><a href="#">Quem somos ?</a></li>
                             <li><a href="#">Chat</a></li>
                             <li><a href="logout.php"><i class="icofont-logout"></i>Sair</a></li>

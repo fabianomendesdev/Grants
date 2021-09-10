@@ -1,0 +1,85 @@
+.main .container-md {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+.section-manageAccount {
+    width: 682px;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.25);
+    background-image: var(--gradient3);
+}
+
+.section-manageAccount .imgAndUsername {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #DDD;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.section-manageAccount .imgAndUsername .div-img {
+    height: 104px;
+    width: 104px;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #DDD;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s ease-in-out;
+}
+
+.section-manageAccount .imgAndUsername > p {
+    margin: 0;
+    margin-left: 15px;
+    font-size: 34px;
+    color: var(--color6);
+}
+
+.section-manageAccount .form-email {
+    border-bottom: 1px solid #DDD;
+    padding-bottom: 30px;
+}
+
+.section-manageAccount .form-password {
+    margin-top: 30px;
+}
+
+.section-manageAccount .form-password .div-password {
+    margin-bottom: 30px;
+}
+
+form label {
+    color: var(--color6);
+    margin-bottom: 10px;    
+}
+
+.div-formControl {
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    padding-right: 5px;
+}
+
+.div-formControl .buttonModifyEmail {
+    width: 24px;
+    height: 24px;
+    border: unset;
+    background-color: unset;
+    background-image: url("../img/eos-icons_content-modified.svg");
+    background-size: cover;
+    background-position: center;
+}
+
+.div-formControl.focus {
+    border: 1px solid #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+

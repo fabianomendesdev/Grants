@@ -113,8 +113,8 @@
 
             <div class="form-row mb-3">
                 <div class="form-groupx">
-                    <label for="PasswordConfirmation" class="form-label">Confirme a senha</label>
-                    <input type="password" name="passwordConfirmation" id="PasswordConfirmation" class="form-control" placeholder="Confirme a senha">
+                    <label for="passwordConfirmation" class="form-label">Confirme a senha</label>
+                    <input type="password" name="passwordConfirmation" id="passwordConfirmation" class="form-control" placeholder="Confirme a senha">
                 </div>
 
                 <?php if(isset($errors['passwordConfirmation'])): ?>
