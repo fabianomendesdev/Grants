@@ -13,15 +13,20 @@
                             <input type="text" style="border: none; box-shadow: none;" class="form-control <?= isset($errors['email']) ? 'is-invalid' : '' ?>" name="email" id="email" placeholder="E-mail" value="<?= isset($errors['email']) ? $_POST['email'] : $_SESSION['user']->email ?>">
                             <abbr title="Alterar email"><button class="buttonModifyEmail">
                             </button></abbr>
-                            <?php if(isset($errors['email'])): ?>
-                                <div class="invalid-feadback">
-                                    <p><?= $errors['email'] ?></p>
-                                </div>
-                            <? endif ?>
                         </div>
+                        <?php if(isset($errors['email'])): ?>
+                            <div class="invalid-feadback">
+                                <p><?= $errors['email'] ?></p>
+                            </div>
+                        <? endif ?>
                     </div>
                 </div>  
             </form>
+            <?php if($message != ''): ?>
+                    <div class="manageAccountSuccess">
+                        <p><?= $message ?></p>
+                    </div>
+                <?php endif ?>
             <form action="#" method="post" class="form-password">
                 <div class="div-password">
                     <div class="form-row">
@@ -45,6 +50,7 @@
                             <? endif ?>
                         </div>
                     </div>
+                    
                     <div class="form-row">
                         <div class="form-group">
                             <input type="password" class="form-control <?= isset($errors['passwordConfirmation']) ? 'is-invalid' : '' ?>" name="passwordConfirmation" id="passwordConfirmation" placeholder="Confirme a nova senha">

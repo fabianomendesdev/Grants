@@ -26,10 +26,91 @@ class User extends Model {
         parent:: insert();
     }
 
+    public function updateEmail(){
+        $this->validateEmail();
+        return parent:: update();
+    }
+    
+    public function updatePassword(){
+        $this->validatePassword();
+        $this->password = password_hash($this->newPassword, PASSWORD_DEFAULT);
+        return parent:: update();
+    }
+
     public function updateEditProfile(){
         $this->validateEditProfile();
         $this->birth = $this->getFormattedDate();
         return parent:: update();
+    }
+
+    public function validatePassword(){
+        $errors = [];
+
+        if(!$this->currentPassword){
+            $errors['currentPassword'] = "Digite a sua senha atual";
+        }
+
+        if(!$this->newPassword){
+            $errors['newPassword'] = "O campo nova senha é obrigatório";
+        }else if(strlen($this->newPassword) > 18){
+            $errors['newPassword'] = "A senha não pode ser muito grande!";
+        }
+
+        if(!$this->passwordConfirmation){
+            $errors['passwordConfirmation'] = "A confirmação de senha é obrigatória";
+        }
+
+        if(count($errors) > 0){
+            throw new AppArrayException($errors);
+        }
+
+        if($this->newPassword !== $this->passwordConfirmation){
+            $errors['newPassword'] = "As senhas não se coincidem";
+            $errors['passwordConfirmation'] = "As senhas não se coincidem";
+        }
+
+        if(count($errors) > 0){
+            throw new AppArrayException($errors);
+        }
+        
+        $user = User::getOne(['id' => $this->id], 'password');
+        if(!password_verify($this->currentPassword, $user->password)){
+            $errors['currentPassword'] = "A senha está incorreta!";
+        }
+
+        if(count($errors) > 0){
+            throw new AppArrayException($errors);
+        }
+    }
+
+    public function validateEmail(){
+        $errors = [];
+        
+        if(!$this->email){
+            $errors['email'] = "O campo e-mail é obrigatório!";            
+        }else if(strlen($this->email) > 100){   
+            $errors['email'] = "O E-mail só pode ter 100 caracteres";            
+        }
+
+        if(count($errors) > 0){
+            throw new AppArrayException($errors);
+        }
+        
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+            $errors['email'] = "Digite o e-mail corretamente!";
+        }
+
+        if(count($errors) > 0){
+            throw new AppArrayException($errors);
+        }
+
+        if((Database::getResultFromQuery("SELECT email FROM users WHERE email = '$this->email'"))->num_rows != 0){
+            $errors['email'] = "Este email já está cadastrado!";
+        }
+
+        if(count($errors) > 0){
+            throw new AppArrayException($errors);
+        }
     }
 
     public function validateEditProfile(){
@@ -80,7 +161,7 @@ class User extends Model {
         }
 
         if(!$this->email){
-            $errors['email'] = "O campo E-mail é obrigatório!";            
+            $errors['email'] = "O campo e-mail é obrigatório!";            
         }else if(strlen($this->email) > 100){   
             $errors['email'] = "O E-mail só pode ter 100 caracteres";            
         }
@@ -112,7 +193,7 @@ class User extends Model {
         }
         
         if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
-            $errors['email'] = "Digite o E-mail corretamente!";
+            $errors['email'] = "Digite o e-mail corretamente!";
         }
                 
         if(!$this->dateValidate()){
