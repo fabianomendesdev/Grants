@@ -8,7 +8,7 @@ if(verify()){
     try{
         $user = new User($_POST);
         $user->insert();    
-        header("Location: login.php?email={$user->email}");
+        header("Location: login?email={$user->email}");
     }catch(AppArrayException $e){
         $errors = $e->getErrors();
     }

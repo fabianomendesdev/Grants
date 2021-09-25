@@ -12,7 +12,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         $login->validate();
         $user = $login->checkLogin();
         $_SESSION['user'] = $user;
-        header("Location: home.php");
+        header("Location: home");
     }catch(AppArrayException $e){  
         $errors = $e->getErrors();
     }catch(AppException $e){

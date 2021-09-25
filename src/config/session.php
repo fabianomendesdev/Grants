@@ -9,11 +9,11 @@ function requireValidSession(){
     }
 
     if(is_null($user)){
-        header("Location: login.php");
+        header("Location: login");
     }else{
         $userLogin = User::getOne(['email' => $user->email, 'password' => $user->password]);        
         if(is_null($userLogin)){
-            header("Location: login.php");
+            header("Location: login");
         }
     }
 }
@@ -30,7 +30,7 @@ function validSession(){
         $userLogin = User::getOne(['email' => $user->email, 'password' => $user->password]);
         
         if(!is_null($userLogin)){
-            header("Location: home.php");
+            header("Location: home");
         }
     }
 }

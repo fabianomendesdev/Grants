@@ -21,11 +21,11 @@
 }
 
 body{
-    width: 100%;
+    width: 100vw;
     min-height: 100vh;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100vw;
     grid-template-rows: 90px 1fr 20px;
     grid-template-areas: 
     "header"
@@ -158,6 +158,8 @@ body{
 }
 
 .menu-toggle .imgAndUsername p {
+    width: calc(100% - 80px);
+    word-wrap: break-word;
     font-size: 26px;
     margin: 0;
     margin-left: 15px;

@@ -5,8 +5,8 @@
                 <div class="errorAndImg">
                     <div class="imgAndUsername">
                         <input type="file" name="photo" id="photo" style="display: none;">
-                        <label for="photo"><div class="div-img" style="background-image: url('getImg.php?photo=<?= $_SESSION['user']->photo ?>');"><div class="div-iconUpload"></div></div></label>
-                        <p><?= isset($_SESSION['user']) ? (strlen($_SESSION['user']->name) > 17 ? substr($_SESSION['user']->name, 0 , 15).trim(substr($_SESSION['user']->name, 15 , 2))."..." : $_SESSION['user']->name) : "Usuário" ?></p>
+                        <label for="photo"><div class="div-img" style="background-image: url('getImg?photo=<?= $_SESSION['user']->photo ?>');"><div class="div-iconUpload"></div></div></label>
+                        <p><?= isset($_SESSION['user']) ? (strlen($_SESSION['user']->name) > 15 ? rtrim(substr($_SESSION['user']->name, 0 , 14), " ")."..." : $_SESSION['user']->name) : "Usuário" ?></p>
                     </div>
                     <?php if(isset($errors['photo'])): ?>
                         <div class="div-errorPhoto">
@@ -93,7 +93,7 @@
 
                 <div class="buttons">
                     <button class="btn btn-primary btn-save">Salvar</button>
-                    <a href="editProfile.php" class="btn btn-secondary btn-cancel">Cancelar</a>
+                    <a href="editProfile" class="btn btn-secondary btn-cancel">Cancelar</a>
                 </div>
             </form>
         </section>
