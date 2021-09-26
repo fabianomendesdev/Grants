@@ -57,5 +57,48 @@
                 <input class="form-control" name="search" placeholder="Pesquisar" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
             </form>
         </div>
+        <section class="section-main">
+            <?php if(!empty($data)): ?>
+                <?php foreach($data as $value): ?>
+                    <div class="div-resultModel">
+                        <h2><?= ucfirst($value['title']) ?></h2>
+                        <div>
+                            <div class="div-abstract">
+                                <p class="abstract"><?= ucfirst($value['abstract']) ?></p>
+                            </div>
+                            <div class="div-matter">
+                                <p class="matter"><?php 
+                                    switch($value['matter']){
+                                        case 'mat':
+                                            echo "Matemática"; 
+                                            break;
+                                        case 'por':
+                                            echo "Português";
+                                            break;
+                                        case 'his':
+                                            echo "História";
+                                            break;
+                                        case 'geo':
+                                            echo "Geografia";
+                                            break;
+                                        case 'bio':
+                                            echo "Biologia";
+                                            break;
+                                        case 'qui':
+                                            echo "Química";
+                                            break;
+                                        case 'fis':
+                                            echo "Física";
+                                            break;
+                                    }
+                                ?></p>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach ?>
+            <?php else: ?>
+                <p>Não encontrei nada! :)</p>
+            <?php endif ?>
+        </section>
     </div>
 </main>

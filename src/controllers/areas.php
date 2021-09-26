@@ -32,15 +32,20 @@ switch(empty($_GET['a']) ? 're' : $_GET['a']){
 
 function search($data) {
     $arrayResult = [];
+    $contPag = 0;
+    if(isset($_GET['pag'])){
+        $_GET['pag'] = intval($_GET['pag']);
+        $contPag = $_GET['pag'] * 25;
+    }
     if($_GET['mat'] === 'all'){
-        $resul = $data->searchAreas(0);  
+        $resul = $data->searchAreas($contPag);  
         if(!is_null($resul)){
             while($result = $resul->fetch_assoc()){
                 $arrayResult[] = $result; 
             }
         }
     }else{             
-        $resul = $data->searchAreasAndMatter(0);  
+        $resul = $data->searchAreasAndMatter($contPag);  
         if(!is_null($resul)){
             while($result = $resul->fetch_assoc()){
                 $arrayResult[] = $result; 
@@ -61,8 +66,4 @@ function verify($mat){
     return false;
 }
 
-if(count($arrayResult) > 0){
-    print_r($arrayResult);
-}
-
-loadTemplateView("areas", "Grants: $a", ['areas'], ['menu-toggle'], true, $message, $errors);
+loadTemplateViewWithResultFromSearch("areas", "Grants: $a", $arrayResult, ['areas'], ['menu-toggle'], true, $message, $errors);
