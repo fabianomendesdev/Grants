@@ -50,6 +50,7 @@
 }
 
 .section-manageAccount .imgAndUsername {
+    width: 100%;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #DDD;
@@ -65,14 +66,12 @@
     background-repeat: no-repeat;
     background-color: #DDD;
     background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.2s ease-in-out;
 }
 
 .section-manageAccount .imgAndUsername > p {
     margin: 0;
+    width: calc(100% - 119px);
+    word-wrap: break-word;
     margin-left: 15px;
     font-size: 34px;
     color: var(--color6);

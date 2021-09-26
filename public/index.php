@@ -1,10 +1,11 @@
 <?php 
 require_once(dirname(__FILE__, 2). '/src/config/config.php');
 
-$uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+$uri = explode("/",urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
+array_shift($uri);
 
-if($uri === '/' || $uri === '' || $uri === '/index.php') {
-    $uri = '/home';
-}   
+if(empty($uri[0]) || $uri[0] === 'index.php') {
+    $uri[0] = 'home';
+}
 
-require_once(CONTROLLER_PATH . "/$uri.php");
+require_once(CONTROLLER_PATH . "/$uri[0].php");

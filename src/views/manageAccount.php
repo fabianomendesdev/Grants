@@ -3,7 +3,7 @@
         <section class="section-manageAccount">
             <div class="imgAndUsername">
                 <div class="div-img" style="background-image: url('getImg?photo=<?= $_SESSION['user']->photo ?>');"></div>
-                <p><?= isset($_SESSION['user']) ? (strlen($_SESSION['user']->name) > 17 ? substr($_SESSION['user']->name, 0 , 15).trim(substr($_SESSION['user']->name, 15 , 2))."..." : $_SESSION['user']->name) : "Usuário" ?></p>
+                <p><?= isset($_SESSION['user']) ? (strlen($_SESSION['user']->name) > 15 ? rtrim(substr($_SESSION['user']->name, 0 , 14), " ")."..." : $_SESSION['user']->name) : "Usuário" ?></p>
             </div>
             <form action="#" method="post" class="form-email">
                 <div class="form-row div-email">

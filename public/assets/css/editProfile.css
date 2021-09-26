@@ -40,7 +40,6 @@
     flex-direction: column;
     align-items: flex-start;
     border-bottom: 1px solid #DDD;
-    padding-bottom: 15px;
     margin-bottom: 30px;
 }
 
@@ -86,6 +85,8 @@
     justify-content: center;
     align-items: center;
     transition: 0.2s ease-in-out;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .section-editProfile .errorAndImg .imgAndUsername .div-img:hover {
@@ -108,12 +109,6 @@
     opacity: 100%;
 }
 
-.section-editProfile .errorAndImg .imgAndUsername img:hover {
-    cursor: pointer;
-    filter: grayscale(100%);
-    transform: scale(0.98);
-}
-
 .section-editProfile .errorAndImg .imgAndUsername > p {
     margin: 0;
     width: calc(100% - 119px);
@@ -121,7 +116,6 @@
     margin-left: 15px;
     font-size: 34px;
     color: var(--color6);
-    color: red;
 }
 
 .form label {
@@ -204,6 +198,32 @@
 @media (max-width: 682px){
     .section-editProfile {
         width: 90%;
+    }
+
+    .section-editProfile .errorAndImg .imgAndUsername .div-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .section-editProfile .errorAndImg .imgAndUsername p {
+        font-size: 28px;
+    }
+
+    .buttons {
+        display: flex;
+    }
+
+    .buttons > * {
+        margin: 0;
+        padding: 0;
+        width: 90px;
+    }
+
+    .buttons > a {
+        display: flex;
+        margin-left: 8px;
+        justify-content: center;
+        align-items: center;
     }
 
     .btn-save {

@@ -208,15 +208,25 @@ body{
 @media (max-width: 480px) {
     .header > .container-md > .widgets > a > .conversation {
         margin-right: 10px;
+        width: 25px;
+    }
+
+    .header > .container-md > .widgets .button-toggle{
+        width: 25px;
+        margin-bottom: 5px;
+    }
+
+    .menu-toggle .imgAndUsername p {
+        font-size: 24px;
     }
 
     .header > .container-md > .div-title > h1 {
         font-weight: 300;
-        font-size: 50px;
+        font-size: 30px;
     }
 
     .header > .container-md > .div-logo > a > .logo {
         margin-top: unset;
-        height: 60px;
+        height: 40px;
     }
 }
