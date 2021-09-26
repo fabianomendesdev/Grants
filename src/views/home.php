@@ -8,7 +8,7 @@
         </a>
         <a href="areas?a=at&mat=all">
             <section class="area area-activity">
-                <p>Atividade</p>
+                <p>Atividades</p>
                 <img src="assets/img/undraw_mathematics_4otb.svg" alt="undraw_mathematics">
             </section>
         </a>

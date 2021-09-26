@@ -7,7 +7,7 @@ $message;
 
 $_GET['mat'];
 
-switch($_GET['a']){
+switch(empty($_GET['a']) ? 're' : $_GET['a']){
     case 're':
         $a = 'Resumos';
         break;
