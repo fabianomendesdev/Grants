@@ -37,15 +37,26 @@ function search($data) {
         $_GET['pag'] = intval($_GET['pag']);
         $contPag = $_GET['pag'] * 25;
     }
+
     if($_GET['mat'] === 'all'){
-        $resul = $data->searchAreas($contPag);  
+        if(isset($_GET['search'])){
+            $resul = $data->searchTextAndAreas($contPag);
+        }else{
+            $resul = $data->searchAreas($contPag);  
+        }
+        
         if(!is_null($resul)){
             while($result = $resul->fetch_assoc()){
                 $arrayResult[] = $result; 
             }
         }
-    }else{             
-        $resul = $data->searchAreasAndMatter($contPag);  
+    }else{  
+        if(isset($_GET['search'])){
+            $resul = $data->searchAll($contPag);
+        }else{
+            $resul = $data->searchAreasAndMatter($contPag); 
+        }
+         
         if(!is_null($resul)){
             while($result = $resul->fetch_assoc()){
                 $arrayResult[] = $result; 

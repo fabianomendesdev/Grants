@@ -13,4 +13,14 @@ class Data extends Model {
         $end = $start + 25;
         return static::getResultSetFromSelectBetween(["areas" => $this->areas], $start, $end, 'access', 'title');
     }
+
+    public function searchAll($start){
+        $end = $start + 25;
+        return static::getResultSetFromSelectBetweenAndText(["areas" => $this->areas, "matter" => $this->matter], $this->search, $start, $end, 'access', 'title');
+    }
+
+    public function searchTextAndAreas($start){
+        $end = $start + 25;
+        return static::getResultSetFromSelectBetweenAndText(["areas" => $this->areas], $this->search, $start, $end, 'access', 'title');
+    }
 }

@@ -79,6 +79,28 @@ class Model {
         }
     }
 
+    public static function getResultSetFromSelectBetweenAndText($filters = [], $search = '', $start = 0, $end = 0, $order1 = 'id', $order2 = 'id',$columns = '*'){
+        $arraySearch = explode(" ", $search);
+        $sql = "SELECT $columns FROM ". static::$tableName. static::getFilters($filters). " and";
+
+        foreach($arraySearch as $key => $value){
+            if($key !== array_key_last($arraySearch)){
+                $sql .= " $order2 like '%$value%' or"; 
+            }else{
+                $sql .= " $order2 like '%$value%'"; 
+            }
+        }
+
+        $sql .= " and id between $start and $end order by $order1 desc, $order2 asc";
+
+        $result = Database::getResultFromQuery($sql);
+        if($result->num_rows === 0){
+            return null;
+        }else{
+            return $result;
+        }
+    }
+
     private static function getFormatedValue($value){
         if(is_null($value)){
             return "null";
