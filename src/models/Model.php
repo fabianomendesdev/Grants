@@ -69,6 +69,16 @@ class Model {
         }
     }
 
+    public static function getResultSetFromSelectBetween($filters = [], $start = 0, $end = 0, $order1 = 'id', $order2 = 'id',$columns = '*'){
+        $sql = "SELECT $columns FROM ". static::$tableName. static::getFilters($filters). " and id between $start and $end order by $order1 desc, $order2 asc";
+        $result = Database::getResultFromQuery($sql);
+        if($result->num_rows === 0){
+            return null;
+        }else{
+            return $result;
+        }
+    }
+
     private static function getFormatedValue($value){
         if(is_null($value)){
             return "null";
