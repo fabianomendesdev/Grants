@@ -38,7 +38,7 @@
             </ul>
         </div>
         <div class="div-navigationAndSearch">
-            <p><a href="home">Home</a> > <a href="#"><?php
+            <p><a href="home">Home</a> <span>></span> <a href="#"><?php
                 switch(empty($_GET['a']) ? 're' : $_GET['a']){
                     case 're':
                         echo 'Resumos';
