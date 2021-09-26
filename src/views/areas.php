@@ -54,51 +54,80 @@
             <form action="areas?a=<?= $_GET['a'] ?>&mat=<?= $_GET['mat'] ?>?" method="get">
                 <input type="hidden" name="a" value="<?= $_GET['a'] ?>">
                 <input type="hidden" name="mat" value="<?= $_GET['mat'] ?>">
-                <input class="form-control" name="search" placeholder="Pesquisar" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
+                <div class='form-control div-search-form'>
+                    <input class="form-control input-search" style="border: none; box-shadow: none;" name="search" placeholder="Pesquisar" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
+                    <button class="button-search"></button>
+                </div>
             </form>
         </div>
         <section class="section-main">
             <?php if(!empty($data)): ?>
                 <?php foreach($data as $value): ?>
-                    <div class="div-resultModel">
-                        <h2><?= ucfirst($value['title']) ?></h2>
-                        <div>
-                            <div class="div-abstract">
-                                <p class="abstract"><?= ucfirst($value['abstract']) ?></p>
-                            </div>
-                            <div class="div-matter">
-                                <p class="matter"><?php 
-                                    switch($value['matter']){
-                                        case 'mat':
-                                            echo "Matemática"; 
-                                            break;
-                                        case 'por':
-                                            echo "Português";
-                                            break;
-                                        case 'his':
-                                            echo "História";
-                                            break;
-                                        case 'geo':
-                                            echo "Geografia";
-                                            break;
-                                        case 'bio':
-                                            echo "Biologia";
-                                            break;
-                                        case 'qui':
-                                            echo "Química";
-                                            break;
-                                        case 'fis':
-                                            echo "Física";
-                                            break;
-                                    }
-                                ?></p>
+                    <a href="#" class="link-div-resultModel">
+                        <div class="div-resultModel">
+                            <h2><?= ucfirst($value['title']) ?></h2>
+                            <div>
+                                <div class="div-abstract">
+                                    <p class="abstract"><?= ucfirst($value['abstract']) ?></p>
+                                </div>
+                                <div class="div-matter">
+                                    <p class="matter"><?php
+                                        switch($value['matter']){
+                                            case 'mat':
+                                                echo "Matemática";
+                                                break;
+                                            case 'por':
+                                                echo "Português";
+                                                break;
+                                            case 'his':
+                                                echo "História";
+                                                break;
+                                            case 'geo':
+                                                echo "Geografia";
+                                                break;
+                                            case 'bio':
+                                                echo "Biologia";
+                                                break;
+                                            case 'qui':
+                                                echo "Química";
+                                                break;
+                                            case 'fis':
+                                                echo "Física";
+                                                break;
+                                        }
+                                    ?></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 <?php endforeach ?>
             <?php else: ?>
                 <p>Não encontrei nada! :)</p>
-            <?php endif ?>
+            <?php endif ?>  
         </section>
+        <?php if(count($data) > 2): ?>
+            <div class="pagination">
+                <form action="areas" method="get">
+                    <input type="hidden" name="a" value="<?= $_GET['a'] ?>">
+                    <input type="hidden" name="mat" value="<?= $_GET['mat'] ?>">
+                    
+                    <?php if(isset($_GET['search'])): ?>
+                        <input type="hidden" name="search" value="<?= $_GET['search'] ?>">
+                    <?php endif ?>
+
+                    <?php if($_GET['pag'] > 0): ?>
+                        <button class="text" name="pag" value="<?= $_GET['pag']-1 ?>">Voltar</button>
+                    <?php endif ?>
+
+                    <?php for($i=0; $i <= intdiv(count($data),2); $i++): ?>                
+                        <button class="numbers" name="pag" value="<?= $i ?>" <?= $_GET['pag'] == $i ? 'style="background-color: #000; color: #FFF;"' : '' ?>><?= $i+1 ?></button>
+                    <?php endfor ?>
+
+                    <?php if(intdiv(count($data),2) < $_GET['pag']): ?>                        
+                        <button class="text" name="pag" value="<?= $_GET['pag']+1 ?>">Próximo</button>
+                    <?php endif ?>
+                </form>
+            </div>
+        <?php endif ?>
     </div>
 </main>

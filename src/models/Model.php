@@ -69,8 +69,8 @@ class Model {
         }
     }
 
-    public static function getResultSetFromSelectBetween($filters = [], $start = 0, $end = 0, $order1 = 'id', $order2 = 'id',$columns = '*'){
-        $sql = "SELECT $columns FROM ". static::$tableName. static::getFilters($filters). " and id between $start and $end order by $order1 desc, $order2 asc";
+    public static function getResultSetFromSelectBetween($filters = [], $start = 0, $order1 = 'id', $order2 = 'id',$columns = '*'){
+        $sql = "SELECT $columns FROM ". static::$tableName. static::getFilters($filters). " order by $order1 desc, $order2 asc limit 2 offset $start";
         $result = Database::getResultFromQuery($sql);
         if($result->num_rows === 0){
             return null;
@@ -79,7 +79,7 @@ class Model {
         }
     }
 
-    public static function getResultSetFromSelectBetweenAndText($filters = [], $search = '', $start = 0, $end = 0, $order1 = 'id', $order2 = 'id',$columns = '*'){
+    public static function getResultSetFromSelectBetweenAndText($filters = [], $search = '', $start = 0, $order1 = 'id', $order2 = 'id',$columns = '*'){
         $arraySearch = explode(" ", $search);
         $sql = "SELECT $columns FROM ". static::$tableName. static::getFilters($filters). " and";
 
@@ -91,7 +91,7 @@ class Model {
             }
         }
 
-        $sql .= " and id between $start and $end order by $order1 desc, $order2 asc";
+        $sql .= " order by $order1 desc, $order2 asc limit 2 offset $start";
 
         $result = Database::getResultFromQuery($sql);
         if($result->num_rows === 0){

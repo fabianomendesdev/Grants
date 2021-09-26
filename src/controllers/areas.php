@@ -34,6 +34,9 @@ function search($data) {
     $arrayResult = [];
     $contPag = 0;
     if(isset($_GET['pag'])){
+        if($_GET['pag'] < 0){
+            $_GET['pag'] = 0;
+        }
         $_GET['pag'] = intval($_GET['pag']);
         $contPag = $_GET['pag'] * 25;
     }
@@ -77,4 +80,4 @@ function verify($mat){
     return false;
 }
 
-loadTemplateViewWithResultFromSearch("areas", "Grants: $a", $arrayResult, ['areas'], ['menu-toggle'], true, $message, $errors);
+loadTemplateViewWithResultFromSearch("areas", "Grants: $a", $arrayResult, ['areas'], ['menu-toggle', 'div-search-control'], true, $message, $errors);

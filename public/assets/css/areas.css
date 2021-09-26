@@ -11,7 +11,6 @@
 }
 
 .div-subjects ul {
-    /* background-color: teal; */
     width: 100%;
     height: 100%;
     margin: 0;
@@ -38,6 +37,12 @@
     color: var(--color8);
     box-shadow: 6px 8px 6px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
+    transition: 0.1s ease-in-out;
+}
+
+.div-subjects ul a:hover li {
+    transform: scale(0.98);
+    background-color: rgb(226, 225, 225);
 }
 
 .div-navigationAndSearch {
@@ -76,12 +81,27 @@
     margin-top: 30px;
 }
 
+.link-div-resultModel {
+    text-decoration: none;
+    color: var(--color7);
+}
+
+.link-div-resultModel:hover {
+    color: var(--color7);
+}
+
+.link-div-resultModel:hover .div-resultModel {
+    transform: rotate(-1deg);
+    background-color: rgb(226, 225, 225);
+}
+
 .div-resultModel {
     background-color: var(--color6);
     padding: 10px;
     margin: 30px 0;
     border-radius: 10px;
     box-shadow: 8px 10px 6px rgba(0, 0, 0, 0.25);
+    transition: 0.2s ease-in-out;
 }
 
 .div-resultModel h2 {
@@ -114,6 +134,7 @@
 
 .div-resultModel div .div-matter .matter {
     font-size: 26px;
+    width: 100%;
     height: 34px;
     display: flex;
     align-items: center;
@@ -124,4 +145,76 @@
     padding: 0 15px;
     padding-bottom: 3px;
     background-color: var(--color1);
+}
+
+.div-search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.button-search {
+    border: none;
+    background-color: unset;
+    background-image: url("../img/search.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 3px;
+    width: 18px;
+    height: 18px;
+}
+
+.div-search-form.focus {
+    border: 1px solid #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.pagination {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.pagination form {
+    display: flex;
+}
+
+.pagination a {
+    text-decoration: none;
+}
+
+.pagination .numbers {
+    width: 23px;
+    height: 23px;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    background-color: var(--color6);
+    color: var(--color7);
+}
+
+.pagination .numbers:hover {
+    background-color: rgb(173, 173, 173);
+}
+
+.pagination .text {
+    margin: 0;
+    padding: 0;
+    background-color: unset;
+    color: var(--color6);
+    margin: 0 10px;
+    border: none;
+}
+
+.pagination .text:hover {
+    text-decoration: underline;
 }
