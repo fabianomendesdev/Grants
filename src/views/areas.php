@@ -135,9 +135,8 @@
                                 echo "<p>...</p>";
                             }
                         ?>
-                        <?php if($i == ceil($data[1]/2)-1): ?>
+                        <?php if($_POST['pag'] <= ceil($data[1]/2)-1): ?>
                             <button class="numbers" name="pag" value="<?= ceil($data[1]/2)-1 ?>" <?= $_GET['pag'] == ceil($data[1]/2)-1 ? 'style="background-color: #000; color: #FFF;"' : '' ?>><?= ceil($data[1]/2) ?></button>
-                            <?php break ?>
                         <? endif ?>
                     <?php endfor ?>
 
