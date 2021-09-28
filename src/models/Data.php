@@ -19,4 +19,25 @@ class Data extends Model {
     public function searchTextAndAreas($start){
         return static::getResultSetFromSelectBetweenAndText(["areas" => $this->areas], $this->search, $start, 'access', 'title');
     }
+    
+    public function searchResulCount($switch){
+        switch($switch){
+            case "searchAreasAndMatter":
+                return static::getResultCount(["areas" => $this->areas, "matter" => $this->matter],'title');
+                break;
+
+            case "searchAreas":
+                return static::getResultCount(["areas" => $this->areas],'title');
+                break;
+
+            case "searchAll":
+                return static::getResultCount(["areas" => $this->areas, "matter" => $this->matter],'title', $this->search);
+                break;
+
+            case "searchTextAndAreas":
+                return static::getResultCount(["areas" => $this->areas],'title', $this->search);
+                break;
+        }
+
+    }
 }

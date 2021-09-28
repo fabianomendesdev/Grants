@@ -100,7 +100,7 @@ body{
 
 .main {
     grid-area: main;
-    min-height: calc(100vh - 110px);
+    /* min-height: calc(100vh - 110px); */
     background-image: var(--gradient2);
     background-attachment: fixed;
 }

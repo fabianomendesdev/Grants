@@ -12,13 +12,17 @@ switch(empty($_GET['a']) ? 're' : $_GET['a']){
         if(verify($_GET['mat'])){
             $data = new Data(["areas" => 're', "matter" => $_GET['mat'], "search" => $_GET['search']]);
             $arrayResult = search($data);
+            $data = $arrayResult[0];
+            $count = $arrayResult[1];
         }
         break;
     case 'at':
         $a = 'Atividades';
         if(verify($_GET['mat'])){
             $data = new Data(["areas" => 'at', "matter" => $_GET['mat'], "search" => $_GET['search']]);
-            $arrayResult = search($data);        
+            $arrayResult = search($data);
+            $data = $arrayResult[0];
+            $count = $arrayResult[1];        
         }
         break;
     case 'au':
@@ -26,6 +30,8 @@ switch(empty($_GET['a']) ? 're' : $_GET['a']){
         if(verify($_GET['mat'])){
             $data = new Data(["areas" => 'au', "matter" => $_GET['mat'], "search" => $_GET['search']]);
             $arrayResult = search($data);
+            $data = $arrayResult[0];
+            $count = $arrayResult[1];
         }
         break;
 }
@@ -38,14 +44,16 @@ function search($data) {
             $_GET['pag'] = 0;
         }
         $_GET['pag'] = intval($_GET['pag']);
-        $contPag = $_GET['pag'] * 25;
+        $contPag = $_GET['pag'] * 2;
     }
 
     if($_GET['mat'] === 'all'){
         if(isset($_GET['search'])){
             $resul = $data->searchTextAndAreas($contPag);
+            $count = $data->searchResulCount("searchTextAndAreas");
         }else{
             $resul = $data->searchAreas($contPag);  
+            $count = $data->searchResulCount("searchAreas");
         }
         
         if(!is_null($resul)){
@@ -56,8 +64,10 @@ function search($data) {
     }else{  
         if(isset($_GET['search'])){
             $resul = $data->searchAll($contPag);
+            $count = $data->searchResulCount("searchAll");
         }else{
             $resul = $data->searchAreasAndMatter($contPag); 
+            $count = $data->searchResulCount("searchAreasAndMatter");
         }
          
         if(!is_null($resul)){
@@ -66,7 +76,7 @@ function search($data) {
             }
         }
     }
-    return $arrayResult;
+    return [$arrayResult,$count];
 }
 
 function verify($mat){
@@ -80,4 +90,4 @@ function verify($mat){
     return false;
 }
 
-loadTemplateViewWithResultFromSearch("areas", "Grants: $a", $arrayResult, ['areas'], ['menu-toggle', 'div-search-control'], true, $message, $errors);
+loadTemplateViewWithResultFromSearch("areas", "Grants: $a", [$data, $count], ['areas'], ['menu-toggle', 'div-search-control'], true, $message, $errors);

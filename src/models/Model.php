@@ -71,7 +71,9 @@ class Model {
 
     public static function getResultSetFromSelectBetween($filters = [], $start = 0, $order1 = 'id', $order2 = 'id',$columns = '*'){
         $sql = "SELECT $columns FROM ". static::$tableName. static::getFilters($filters). " order by $order1 desc, $order2 asc limit 2 offset $start";
+    
         $result = Database::getResultFromQuery($sql);
+
         if($result->num_rows === 0){
             return null;
         }else{
@@ -94,10 +96,33 @@ class Model {
         $sql .= " order by $order1 desc, $order2 asc limit 2 offset $start";
 
         $result = Database::getResultFromQuery($sql);
+        
         if($result->num_rows === 0){
             return null;
         }else{
             return $result;
+        }
+    }
+
+    public static function getResultCount($filters,$order, $search = null){
+        $sql = "SELECT id FROM ". static::$tableName. static::getFilters($filters);
+
+        if(!is_null($search)){
+            $arraySearch = explode(" ", $search);
+            foreach($arraySearch as $key => $value){
+                if($key !== array_key_last($arraySearch)){
+                    $sql .= " $order like '%$value%' or"; 
+                }else{
+                    $sql .= " $order like '%$value%'"; 
+                }
+            }
+        }
+
+        $count = Database::getResultFromQuery($sql);
+        if($count->num_rows === 0){
+            return 0;
+        }else{
+            return $count->num_rows;
         }
     }
 
