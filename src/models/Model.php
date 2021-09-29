@@ -71,7 +71,7 @@ class Model {
 
     public static function getResultSetFromSelectBetween($quantItms, $filters = [], $start = 0, $order1 = 'id', $order2 = 'id',$columns = '*'){
         $sql = "SELECT $columns FROM ". static::$tableName. static::getFilters($filters). " order by $order1 desc, $order2 asc limit $quantItms offset $start";
-    
+        
         $result = Database::getResultFromQuery($sql);
 
         if($result->num_rows === 0){
@@ -111,9 +111,9 @@ class Model {
             $arraySearch = explode(" ", $search);
             foreach($arraySearch as $key => $value){
                 if($key !== array_key_last($arraySearch)){
-                    $sql .= " $order like '%$value%' or"; 
+                    $sql .= " and $order like '%$value%' or"; 
                 }else{
-                    $sql .= " $order like '%$value%'"; 
+                    $sql .= " and $order like '%$value%'"; 
                 }
             }
         }

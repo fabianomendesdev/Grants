@@ -84,6 +84,7 @@ function search($data) {
             }
         }
     }
+
     return [$arrayResult,$count];
 }
 
