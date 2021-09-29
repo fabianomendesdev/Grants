@@ -5,12 +5,13 @@ session_regenerate_id();
 require_once MODEL_PATH."/Data.php";
 $errors = [];
 $message;
+$quantItms = 5;
 
 switch(empty($_GET['a']) ? 're' : $_GET['a']){
     case 're':
         $a = 'Resumos';
         if(verify($_GET['mat'])){
-            $data = new Data(["areas" => 're', "matter" => $_GET['mat'], "search" => $_GET['search']]);
+            $data = new Data(["quantItms" => $quantItms,"areas" => 're', "matter" => $_GET['mat'], "search" => $_GET['search']]);
             $arrayResult = search($data);
             $data = $arrayResult[0];
             $count = $arrayResult[1];
@@ -19,7 +20,7 @@ switch(empty($_GET['a']) ? 're' : $_GET['a']){
     case 'at':
         $a = 'Atividades';
         if(verify($_GET['mat'])){
-            $data = new Data(["areas" => 'at', "matter" => $_GET['mat'], "search" => $_GET['search']]);
+            $data = new Data(["quantItms" => $quantItms,"areas" => 'at', "matter" => $_GET['mat'], "search" => $_GET['search']]);
             $arrayResult = search($data);
             $data = $arrayResult[0];
             $count = $arrayResult[1];        
@@ -28,7 +29,7 @@ switch(empty($_GET['a']) ? 're' : $_GET['a']){
     case 'au':
         $a = 'Aulas';
         if(verify($_GET['mat'])){
-            $data = new Data(["areas" => 'au', "matter" => $_GET['mat'], "search" => $_GET['search']]);
+            $data = new Data(["quantItms" => $quantItms,"areas" => 'au', "matter" => $_GET['mat'], "search" => $_GET['search']]);
             $arrayResult = search($data);
             $data = $arrayResult[0];
             $count = $arrayResult[1];
@@ -43,17 +44,24 @@ function search($data) {
         if($_GET['pag'] < 0){
             $_GET['pag'] = 0;
         }
+
         $_GET['pag'] = intval($_GET['pag']);
-        $contPag = $_GET['pag'] * 2;
+    }
+
+    function countPag($count){
+        if($_GET['pag'] > (ceil($count/$GLOBALS["quantItms"])-1)){
+            $_GET['pag'] = (ceil($count/$GLOBALS["quantItms"])-1);
+        }
+        return $_GET['pag'] * $GLOBALS["quantItms"];
     }
 
     if($_GET['mat'] === 'all'){
         if(isset($_GET['search'])){
-            $resul = $data->searchTextAndAreas($contPag);
             $count = $data->searchResulCount("searchTextAndAreas");
+            $resul = $data->searchTextAndAreas(countPag($count));
         }else{
-            $resul = $data->searchAreas($contPag);  
             $count = $data->searchResulCount("searchAreas");
+            $resul = $data->searchAreas(countPag($count));  
         }
         
         if(!is_null($resul)){
@@ -63,11 +71,11 @@ function search($data) {
         }
     }else{  
         if(isset($_GET['search'])){
-            $resul = $data->searchAll($contPag);
             $count = $data->searchResulCount("searchAll");
+            $resul = $data->searchAll(countPag($count));
         }else{
-            $resul = $data->searchAreasAndMatter($contPag); 
             $count = $data->searchResulCount("searchAreasAndMatter");
+            $resul = $data->searchAreasAndMatter(countPag($count)); 
         }
          
         if(!is_null($resul)){
@@ -90,4 +98,4 @@ function verify($mat){
     return false;
 }
 
-loadTemplateViewWithResultFromSearch("areas", "Grants: $a", [$data, $count], ['areas'], ['menu-toggle', 'div-search-control'], true, $message, $errors);
+loadTemplateViewWithResultFromSearch($quantItms, "areas", "Grants: $a", [$data, $count], ['areas'], ['menu-toggle', 'div-search-control'], true, $message, $errors);

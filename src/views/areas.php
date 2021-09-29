@@ -105,7 +105,7 @@
                 <p>Não encontrei nada! :)</p>
             <?php endif ?>  
         </section>
-        <?php if($data[1] > 2): ?>
+        <?php if(ceil($data[1]/$quantItms) > 1): ?>
             <div class="pagination">
                 <form action="areas" method="get">
                     <input type="hidden" name="a" value="<?= $_GET['a'] ?>">
@@ -118,29 +118,35 @@
                     <?php if($_GET['pag'] > 0): ?>
                         <button class="text" name="pag" value="<?= $_GET['pag']-1 ?>">Voltar</button>
                     <?php endif ?>
-                    <?php $quantNm = 4 ?>
-                    <?php for($i=(($_GET['pag']) >= $quantNm-1) ? ($_GET['pag']) - ($quantNm-2) : 0; $i < $quantNm+($_GET['pag'] > 1 ? $_GET['pag']-2 : 0); $i++): ?>   
-                        <?php if($i <= ($quantNm+($_GET['pag'] > 1 ? $_GET['pag']-2 : 0))+1): ?>             
+
+                    <?php 
+                    $quantNm = 6; //Não pode ser menor que 5 
+                    $start = $_GET['pag'];
+                    if($start >= (ceil($data[1]/$quantItms)-($quantNm-1))){
+                        $start = (ceil($data[1]/$quantItms)-($quantNm-1));
+                    }                       
+                    ?>
+
+                    <?php if(ceil($data[1]/$quantItms) > 4): ?>
+                        <?php for($i= 0 + $start; $i < ($quantNm-1) + ($start-1); $i++): ?>   
                             <button class="numbers" name="pag" value="<?= $i ?>" <?= $_GET['pag'] == $i ? 'style="background-color: #000; color: #FFF;"' : '' ?>><?= $i+1 ?></button>
-                            <?php 
-                                if($i >= ceil($data[1]/2)-1){
-                                    break;
-                                }
-                            ?>
-                        <? endif ?>
-                        
 
-                        <?php 
-                            if($_POST['pag'] < ($quantNm-2) && $_POST['pag'] > ($quantNm-3)){
-                                echo "<p>...</p>";
-                            }
-                        ?>
-                        <?php if($_POST['pag'] <= ceil($data[1]/2)-1): ?>
-                            <button class="numbers" name="pag" value="<?= ceil($data[1]/2)-1 ?>" <?= $_GET['pag'] == ceil($data[1]/2)-1 ? 'style="background-color: #000; color: #FFF;"' : '' ?>><?= ceil($data[1]/2) ?></button>
-                        <? endif ?>
-                    <?php endfor ?>
+                            <?php if($i+1 == ($quantNm-1) + ($start-1)): ?>
+                                <?php
+                                    if((ceil($data[1]/$quantItms)-$quantNm) >= $_GET['pag']){
+                                        echo '<p style="padding: 0; margin: 0;">...</p>';
+                                    }
+                                ?>
+                                <button class="numbers" name="pag" value="<?= ceil($data[1]/$quantItms)-1 ?>" <?= $_GET['pag'] == (ceil($data[1]/$quantItms)-1) ? 'style="background-color: #000; color: #FFF;"' : '' ?>><?= (ceil($data[1]/$quantItms)) ?></button>
+                            <?php endif ?>
+                        <?php endfor ?>
+                    <?php else: ?>
+                        <?php for($i=0; $i < ceil($data[1]/$quantItms); $i++): ?>
+                            <button class="numbers" name="pag" value="<?= $i ?>" <?= $_GET['pag'] == $i ? 'style="background-color: #000; color: #FFF;"' : '' ?>><?= $i+1 ?></button>
+                        <?php endfor ?>
+                    <?php endif ?>
 
-                    <?php if($_GET['pag'] < ceil($data[1]/2)): ?>                        
+                    <?php if($_GET['pag'] < ceil($data[1]/$quantItms)-1): ?>                        
                         <button class="text" name="pag" value="<?= $_GET['pag']+1 ?>">Próximo</button>
                     <?php endif ?>
                 </form>
@@ -148,5 +154,3 @@
         <?php endif ?>
     </div>
 </main>
-
-<?php echo ceil($data[1]/2) ?>
