@@ -1,0 +1,34 @@
+.main .container-md {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-navigation {
+    margin-top: 40px;
+}
+
+.div-navigation a {
+    text-decoration: none;
+    color: var(--color6);
+}
+
+.div-navigation span {
+    margin: 0 10px;
+}
+
+.div-navigation a:hover {
+    text-decoration: underline;
+}
+
+.div-navigation p {
+    font-size: 21px;
+    margin: 0;
+    padding: 0;
+    color: var(--color6);
+}
+
+.section-video {
+    margin-top: 60px;
+    width: 100%;
+    height: 710px;
+}

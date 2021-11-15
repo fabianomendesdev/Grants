@@ -63,7 +63,7 @@
         <section class="section-main">
             <?php if(!empty($data[0])): ?>
                 <?php foreach($data[0] as $value): ?>
-                    <a href="#" class="link-div-resultModel">
+                    <a href="showContent?r=<?= base64_encode(strval($value['id'])) ?>" class="link-div-resultModel">
                         <div class="div-resultModel">
                             <h2><?= ucfirst($value['title']) ?></h2>
                             <div>

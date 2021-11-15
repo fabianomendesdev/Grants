@@ -43,3 +43,21 @@ function loadTemplateViewWithResultFromSearch($quantItms = 0, $view, $title = "G
     loadViewData($quantItms, $view, $is_admin, $data, $message, $errors);
     require_once TEMPLATE_PATH."/footer.php";
 }
+
+function loadTemplateViewWithGetOne($view, $title = "Grants", $data = [], $loadCss = [], $loadJs = [], $activationWidgets = false, $message = '', $errors = []){
+    $is_admin = false;
+    $is_admin = !!((new User(['email' => $_SESSION['user']->email, 'id' => $_SESSION['user']->id]))->is_admin()->is_admin);
+    if($is_admin && $_SESSION['user']->is_admin){
+        $is_admin = true;
+    }else{
+        $is_admin = false;
+    }
+    require_once TEMPLATE_PATH."/top.php";
+    require_once TEMPLATE_PATH."/header.php";
+    loadViewGetOne($view, $is_admin, $data, $message, $errors);
+    require_once TEMPLATE_PATH."/footer.php";
+}
+
+function loadViewGetOne($view, $is_admin, $data, $message, $errors){
+    require_once VIEW_PATH."/$view.php";  
+}

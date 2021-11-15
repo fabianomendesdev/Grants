@@ -29,8 +29,26 @@ if(!isset($_SESSION['data'])){
         case "video":
             if(isset($_POST['link'])){
                 try{
-                    $data = new Data(['link' => $_POST['link'], 'title' => $_SESSION['data']['title'], 'abstract' => $_SESSION['data']['abstract'], 'areas' => $_SESSION['data']['areas'], 'type' => $_SESSION['data']['type'], 'matter' => $_SESSION['data']['mat']]);
-                    $data->validateURL();
+                    if(!$_POST['link']){
+                        throw new AppException('Este campo é obrigatório!');
+                    }
+            
+                    if(!filter_var($_POST['link'], FILTER_VALIDATE_URL)){
+                        throw new AppException('Envie um link válido!');
+                    }
+
+                    $link = $_POST['link'];
+                    if(!is_null($link)){
+                        if(substr($link, 0, 32) == "https://www.youtube.com/watch?v="){
+                            $link = substr($link, 32, strlen($link)-32);
+                        }elseif(substr($link, 0, 17) == "https://youtu.be/"){
+                            $link = substr($link, 17, strlen($link)-17);
+                        }else{
+                            throw new AppException('Apenas vídeos do youtube!');
+                        }
+                    }
+
+                    $data = new Data(['link' => $link, 'title' => $_SESSION['data']['title'], 'abstract' => $_SESSION['data']['abstract'], 'areas' => $_SESSION['data']['areas'], 'type' => $_SESSION['data']['type'], 'matter' => $_SESSION['data']['mat']]);
                     $data->insert();
                     unset($_SESSION['data']);
                     header("Location: formContent");

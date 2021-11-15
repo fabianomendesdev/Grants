@@ -9,7 +9,7 @@ function savePDFByFile($filePDF){
             throw new AppException('Envie um PDF!');
         }
 
-        $folderUpload = realpath(dirname(__FILE__).'/../../data').'/';
+        $folderUpload = realpath(dirname(__FILE__).'/../../data/pdf').'/';
         $file = $folderUpload . $nameFile;
         $tmp = $filePDF['tmp_name'];
 
