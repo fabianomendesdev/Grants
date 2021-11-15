@@ -98,4 +98,23 @@ class Data extends Model {
         }
         return false;
     }
+
+    public function validateURL(){
+        if(!$this->link){
+            throw new AppException('Este campo é obrigatório!');
+        }
+
+        if(!filter_var($this->link, FILTER_VALIDATE_URL)){
+            throw new AppException('Envie um link válido!');
+        }
+
+        if((substr($this->link, 0, 24) != "https://www.youtube.com/") && (substr($this->link, 0, 17) != "https://youtu.be/")){
+            throw new AppException('Apenas vídeos do youtube!');
+        }
+    }
+
+    public function insert(){
+        $this->access = 0;
+        parent::insert();
+    }
 }
