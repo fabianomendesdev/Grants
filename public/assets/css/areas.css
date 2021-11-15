@@ -90,7 +90,8 @@
     color: var(--color7);
 }
 
-.link-div-resultModel:hover .div-resultModel {
+.div-resultModel:hover {
+    cursor: pointer;
     transform: rotate(-1deg);
     background-color: rgb(226, 225, 225);
 }
@@ -102,40 +103,30 @@
     border-radius: 10px;
     box-shadow: 8px 10px 6px rgba(0, 0, 0, 0.25);
     transition: 0.2s ease-in-out;
-}
-
-.div-resultModel h2 {
-    font-size: 36px;
-}
-
-.div-resultModel div {
     display: grid;
     grid-template-columns: 1fr 175px;
-    grid-template-areas: "abstract matter";
+    grid-template-rows: 1fr 50px;
+    grid-template-areas: 
+    "title widgets"
+    "abstract matter"
+    ;
 }
 
-.div-resultModel div .div-abstract {
+.div-resultModel .div-abstract {
     grid-area: abstract;
-    padding-left: 5px;
-    display: flex;
 }
 
-.div-resultModel div .div-matter {
+.div-resultModel .div-matter {
     grid-area: matter;
     display: flex;
     justify-content: center;
-    align-items: flex-end;    
+    align-items: center;
 }
 
-.div-resultModel div .div-abstract .abstract {
-    text-align: justify;
-    font-size: 16px;
-}
-
-.div-resultModel div .div-matter .matter {
+.div-resultModel .div-matter .matter {
     font-size: 26px;
     width: 100%;
-    height: 34px;
+    height: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -145,6 +136,53 @@
     padding: 0 15px;
     padding-bottom: 3px;
     background-color: var(--color1);
+}
+
+.div-title-result {
+    grid-area: title;
+}
+
+.div-widgets {
+    grid-area: widgets;
+}
+
+.div-widgets {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 28px;
+}
+
+.div-widgets a { 
+    text-decoration: none;
+    color: var(--color7);
+    margin-bottom: 5px;
+}
+
+.div-widgets a:hover {
+    transform: scale(1.04);
+}
+
+.div-widgets .icofont-edit {
+    background-color: yellow;
+    border-radius: 50%;
+    padding: 8px;
+    margin-left: -48px;
+}
+
+.div-widgets .icofont-trash {
+    background-color: red;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.div-resultModel .div-title-result h2 {
+    font-size: 36px;
+}
+
+.div-resultModel .div-abstract .abstract {
+    text-align: justify;
+    font-size: 16px;
 }
 
 .div-search-form {
@@ -217,4 +255,8 @@
 
 .pagination .text:hover {
     text-decoration: underline;
+}
+
+.div-widgets > * {
+    display: block;
 }

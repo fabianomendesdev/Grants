@@ -64,12 +64,20 @@
             <?php if(!empty($data[0])): ?>
                 <?php foreach($data[0] as $value): ?>
                     <a href="showContent?r=<?= base64_encode(strval($value['id'])) ?>" class="link-div-resultModel">
-                        <div class="div-resultModel">
-                            <h2><?= ucfirst($value['title']) ?></h2>
-                            <div>
+                        <div class="div-resultModel">            
+                                <div class="div-title-result">
+                                    <h2><?= ucfirst($value['title']) ?></h2>
+                                </div>
+                                <?php if($is_admin): ?>
+                                    <div class="div-widgets">
+                                        <a href="#"><i class="icofont-edit"></i></a>
+                                        <a href="#"><i class="icofont-trash"></i></a>
+                                    </div>
+                                <? endif ?>
                                 <div class="div-abstract">
                                     <p class="abstract"><?= ucfirst($value['abstract']) ?></p>
                                 </div>
+                                
                                 <div class="div-matter">
                                     <p class="matter"><?php
                                         switch($value['matter']){
@@ -96,8 +104,7 @@
                                                 break;
                                         }
                                     ?></p>
-                                </div>
-                            </div>
+                                </div>                            
                         </div>
                     </a>
                 <?php endforeach ?>

@@ -22,7 +22,7 @@
             </section>
         <?php elseif($data->type === 'pdf'): ?>
             <section class="section-pdf">
-                <object data="<?= realpath(__FILE__.'/REQUISITOS_PI_3_-_SISTEMA_WEB.pdf') ?>" type="application/pdf">
+                <object data="getPDF?pdf=<?= $data->path ?>" type="application/pdf">
                     <p>Seu navegador não tem um plugin pra PDF</p>
                 </object>
             </section>
