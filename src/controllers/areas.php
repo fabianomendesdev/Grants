@@ -1,6 +1,6 @@
 <?php
 session_start();
-requireValidSession();
+requireValidSession(false);
 session_regenerate_id();
 require_once MODEL_PATH."/Data.php";
 $errors = [];

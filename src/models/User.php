@@ -282,4 +282,8 @@ class User extends Model {
     private function getFormattedDate(){
         return "{$this->year}-{$this->month}-{$this->day}";
     }
+
+    public function is_admin(){
+        return parent::getOne(['email' => $this->email, 'id' => $this->id], 'is_admin');
+    }
 }

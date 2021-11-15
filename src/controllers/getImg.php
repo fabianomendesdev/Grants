@@ -1,6 +1,6 @@
 <?php
 session_start();
-requireValidSession();
+requireValidSession(false);
 $photo = $_GET['photo'];
 $format = substr($photo, strlen($photo)-3);
 
