@@ -45,14 +45,57 @@ class Data extends Model {
         $errors = [];
 
         if(!$this->title){
-            $errors['title'] = "O campo title é obrigatório";
+            $errors['title'] = "O campo título é obrigatório!";
         }
 
+        if(!$this->abstract){
+            $errors['abstract'] = "O campo resumo é obrigatório!";
+        }
+
+        if(!$this->verifyAreas()){
+            $errors['areas'] = "Este campo é obrigatório!";
+        }
+
+        if(!$this->verifyType()){
+            $errors['type'] = "Este campo é obrigatório!";
+        }
+
+        if(!$this->verifyMaterias()){
+            $errors['mat'] = "Este campo é obrigatório!";
+        }
 
         if(count($errors) > 0){
             throw new AppArrayException($errors);
         }
+    }
 
+    private function verifyAreas() {
+        $areas = ['re', 'at', 'au'];
+        foreach($areas as $element){
+            if($this->areas == $element){
+                return true;
+            }
+        }
+        return false;
+    }
 
+    private function verifyType() {
+        $types = ['pdf', 'video'];
+        foreach($types as $element){
+            if($this->type == $element){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private function verifyMaterias() {
+        $materias = ['mat', 'por', 'his', 'geo', 'bio', 'qui','fis'];
+        foreach($materias as $element){
+            if($this->mat == $element){
+                return true;
+            }
+        }
+        return false;
     }
 }

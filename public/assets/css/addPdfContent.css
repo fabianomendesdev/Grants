@@ -1,0 +1,23 @@
+.main .container-md {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-section {
+    width: 539px;
+    min-height: 314px;
+    background-color: var(--color6);
+    padding: 60px 30px;
+    border-radius: 20px;
+}
+
+.main-section label {
+    font-size: 20px;
+    color: var(--color7);
+    margin-bottom: 15px;
+}
+
+.buttons {
+    margin-top: 60px;
+}

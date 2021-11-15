@@ -21,7 +21,7 @@
                             <li><a href="manageAccount">Gerenciar Conta</a></li>
                             <li><a href="#">Quem somos ?</a></li>
                             <?php if($is_admin  ): ?>
-                            <li><a href="addContent">Adicionar conteúdo</a></li>
+                            <li><a href="formContent">Adicionar conteúdo</a></li>
                             <?php endif ?>
                             <li><a href="#">Chat</a></li>
                             <li><a href="logout"><i class="icofont-logout"></i>Sair</a></li>

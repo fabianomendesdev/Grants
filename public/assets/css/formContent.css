@@ -17,8 +17,6 @@
 .div-areas {
     display: flex;
     justify-content: space-between;
-    padding: 0 5px;
-    border-bottom: 1px solid rgba(163, 157, 157, 0.486);
 }
 
 .div-areas > div > input {
@@ -28,6 +26,30 @@
 
 .div-abstract > textarea {
     height: 118px;
+}
+
+.div-errors{
+    border-bottom: 1px solid rgba(163, 157, 157, 0.486);
+}
+
+.div-errors,.invalid-feadback {
+    background-color: red;
+    margin-top: 2px;
+    border-radius: 5px;
+}
+
+.div-errors,.invalid-feadback > p {
+    padding: 0 5px;
+}
+
+.div-errors > p {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+.invalid-feadback > p {
+    font-size: 15px;
 }
 
 textarea {
