@@ -40,4 +40,19 @@ class Data extends Model {
         }
 
     }
+
+    public function validateInputs() {
+        $errors = [];
+
+        if(!$this->title){
+            $errors['title'] = "O campo title é obrigatório";
+        }
+
+
+        if(count($errors) > 0){
+            throw new AppArrayException($errors);
+        }
+
+
+    }
 }
