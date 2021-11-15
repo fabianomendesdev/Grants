@@ -16,8 +16,6 @@
             ?></a><span>></span><a href="#"><?= $data->title ?></a></p>
         </div>
 
-        <?php print_r($data) ?>
-
         <?php if($data->type === 'video'): ?>
             <section class="section-video">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<?= $data->link ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
