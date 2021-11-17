@@ -61,25 +61,24 @@ class UploadImagem{
 		$uploadfile = $caminho.$file['name'];
 
 		if (!move_uploaded_file($file['tmp_name'], $uploadfile)) {
-		switch($file['error']){
-			case 1:
-				throw new AppArrayException(['photo' => "O tamanho do arquivo é maior que o
-				tamanho permitido."]);
-			break;
-			case 2:
-				throw new AppArrayException(['photo' => "O tamanho do arquivo é maior que o
-				tamanho permitido."]);
-			break;
-			case 3:
-				throw new AppArrayException(['photo' => "O upload do arquivo foi feito
-				parcialmente."]);
-			break;
-			case 4:
-				throw new AppArrayException(['photo' => "Não foi feito o upload de
-				arquivo."]);
-			break;
-		}
-
+			switch($file['error']){
+				case 1:
+					throw new AppArrayException(['photo' => "O tamanho do arquivo é maior que o
+					tamanho permitido."]);
+				break;
+				case 2:
+					throw new AppArrayException(['photo' => "O tamanho do arquivo é maior que o
+					tamanho permitido."]);
+				break;
+				case 3:
+					throw new AppArrayException(['photo' => "O upload do arquivo foi feito
+					parcialmente."]);
+				break;
+				case 4:
+					throw new AppArrayException(['photo' => "Não foi feito o upload de
+					arquivo."]);
+				break;
+			}
 		}else{
 			list($width_orig, $height_orig) = getimagesize($uploadfile);
 

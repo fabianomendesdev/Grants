@@ -4,7 +4,7 @@
             <form action="#" method="post" class="form" enctype="multipart/form-data">
                 <div class="errorAndImg">
                     <div class="imgAndUsername">
-                        <input type="file" name="photo" id="photo" style="display: none;">
+                        <input type="file" name="photo" id="photo" style="display: none;" accept=".png,.jpg,.jpeg">
                         <label for="photo"><div class="div-img" style="background-image: url('getImg?photo=<?= $_SESSION['user']->photo ?>');"><div class="div-iconUpload"></div></div></label>
                         <p><?= isset($_SESSION['user']) ? (strlen($_SESSION['user']->name) > 15 ? rtrim(substr($_SESSION['user']->name, 0 , 14), " ")."..." : $_SESSION['user']->name) : "Usuário" ?></p>
                     </div>
