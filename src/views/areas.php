@@ -62,54 +62,60 @@
         </div>
         <section class="section-main">
             <?php if(!empty($data[0])): ?>
-                <?php foreach($data[0] as $value): ?>
-                    <a href="showContent?r=<?= base64_encode(strval($value['id'])) ?>" class="link-div-resultModel">
-                        <div class="div-resultModel">            
-                                <div class="div-title-result">
-                                    <h2><?= ucfirst($value['title']) ?></h2>
+                <?php foreach($data[0] as $value): ?>            
+                    <div onclick="clickContent('<?= base64_encode(strval($value['id'])) ?>')" class="div-resultModel">                                
+                            <div class="div-title-result">
+                                <h2><?= ucfirst($value['title']) ?></h2>
+                            </div>
+
+                            <?php if($is_admin): ?>
+                                <div class="div-widgets">
+                                    <a href="manageContent?update=<?= base64_encode(strval($value['id'])) ?>">
+                                        <i class="icofont-edit"></i>
+                                    </a>
+                                    <a href="manageContent?delete=<?= base64_encode(strval($value['id'])) ?>">
+                                        <i class="icofont-trash"></i>
+                                    </a>                                                        
                                 </div>
-                                <?php if($is_admin): ?>
-                                    <div class="div-widgets">
-                                        <a href="#"><i class="icofont-edit"></i></a>
-                                        <a href="#"><i class="icofont-trash"></i></a>
-                                    </div>
-                                <? endif ?>
-                                <div class="div-abstract">
-                                    <p class="abstract"><?= ucfirst($value['abstract']) ?></p>
-                                </div>
-                                
-                                <div class="div-matter">
-                                    <p class="matter"><?php
-                                        switch($value['matter']){
-                                            case 'mat':
-                                                echo "Matemática";
-                                                break;
-                                            case 'por':
-                                                echo "Português";
-                                                break;
-                                            case 'his':
-                                                echo "História";
-                                                break;
-                                            case 'geo':
-                                                echo "Geografia";
-                                                break;
-                                            case 'bio':
-                                                echo "Biologia";
-                                                break;
-                                            case 'qui':
-                                                echo "Química";
-                                                break;
-                                            case 'fis':
-                                                echo "Física";
-                                                break;
-                                        }
-                                    ?></p>
-                                </div>                            
-                        </div>
-                    </a>
+                            <?php endif ?>  
+                            
+                            <div class="div-abstract">
+                                <p class="abstract"><?= ucfirst($value['abstract']) ?></p>
+                            </div>
+                            
+                            <div class="div-matter">
+                                <p class="matter"><?php
+                                    switch($value['matter']){
+                                        case 'mat':
+                                            echo "Matemática";
+                                            break;
+                                        case 'por':
+                                            echo "Português";
+                                            break;
+                                        case 'his':
+                                            echo "História";
+                                            break;
+                                        case 'geo':
+                                            echo "Geografia";
+                                            break;
+                                        case 'bio':
+                                            echo "Biologia";
+                                            break;
+                                        case 'qui':
+                                            echo "Química";
+                                            break;
+                                        case 'fis':
+                                            echo "Física";
+                                            break;
+                                    }
+                                ?></p>
+                            </div>                                                    
+                        </div>        
                 <?php endforeach ?>
             <?php else: ?>
-                <p>Não encontrei nada! :)</p>
+                <div class='div-notFind'>
+                    <p>Sua pesquisa não encontrou nenhum documento correspondente!</p>
+                </div>
             <?php endif ?>  
         </section>
         <?php if(ceil($data[1]/$quantItms) > 1): ?>
@@ -161,3 +167,8 @@
         <?php endif ?>
     </div>
 </main>
+<script>
+    function clickContent(content) {
+        window.location.href = `showContent?r=${content}`
+    }
+</script>

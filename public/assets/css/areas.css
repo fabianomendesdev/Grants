@@ -97,6 +97,8 @@
 }
 
 .div-resultModel {
+    width: 100%;
+    height: 120px;
     background-color: var(--color6);
     padding: 10px;
     margin: 30px 0;
@@ -126,7 +128,7 @@
 .div-resultModel .div-matter .matter {
     font-size: 26px;
     width: 100%;
-    height: 90%;
+    height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -146,6 +148,10 @@
     grid-area: widgets;
 }
 
+.div-widgets > * {
+    display: block;
+}
+
 .div-widgets {
     display: flex;
     justify-content: space-around;
@@ -159,7 +165,19 @@
     margin-bottom: 5px;
 }
 
+.div-widgets a {
+    transition: 0.15s ease-in-out;
+}
+
 .div-widgets a:hover {
+    transform: scale(1.04);
+}
+
+.form-delete button {
+    transition: 0.15s ease-in-out;
+}
+
+.form-delete button:hover {
     transform: scale(1.04);
 }
 
@@ -167,13 +185,18 @@
     background-color: yellow;
     border-radius: 50%;
     padding: 8px;
-    margin-left: -48px;
 }
 
 .div-widgets .icofont-trash {
     background-color: red;
     border-radius: 50%;
-    padding: 8px;
+    padding: 9px;
+    display: block;
+}
+
+.form-delete > button {
+    border: unset;
+    background: unset;
 }
 
 .div-resultModel .div-title-result h2 {
@@ -257,6 +280,14 @@
     text-decoration: underline;
 }
 
-.div-widgets > * {
-    display: block;
+.div-notFind {
+    display: flex;
+}
+
+.div-notFind > p {
+    font-size: 20px;
+    color: var(--color6);
+    padding: 2px 5px;
+    border-radius: 5px;
+    margin: 0;
 }
