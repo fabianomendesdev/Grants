@@ -99,4 +99,5 @@ function verify($mat){
     return false;
 }
 
+$_SESSION['redirect'] = $_SERVER['REQUEST_URI'];
 loadTemplateViewWithResultFromSearch($quantItms, "areas", "Grants: $a", [$data, $count], ['areas'], ['menu-toggle', 'div-search-control'], true, $message, $errors);

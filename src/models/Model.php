@@ -167,4 +167,9 @@ class Model {
         Database::executeSQL($sql);
         return static::getOne(['id' => $id]);
     }
+
+    public function delete(){
+        $sql = "DELETE FROM ". static::$tableName ." WHERE id = ". $this->id ." LIMIT 1";
+        Database::executeSQL($sql);
+    }
 }

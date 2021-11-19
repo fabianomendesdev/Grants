@@ -5,11 +5,13 @@
 
             <p>Título: <?= $data->title ?></p>
             
-            <p>Subtítulo: <?= $data->abstract ?></p>
+            <p>Resumo: <?= $data->abstract ?></p>
 
             <div class="buttons">
-                <button class="btn btn-primary">Sim</button>
-                <button class="btn btn-secondary">Não</button>
+                <form action="#" method="post">
+                    <button name="confirm" value="1" class="btn btn-primary">Sim</button>
+                    <button name="confirm" value="0" class="btn btn-secondary mx-3">Não</button>
+                </form>
             </div>
         </section>
     </div>
