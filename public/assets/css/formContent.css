@@ -33,7 +33,7 @@
 }
 
 .div-errors,.invalid-feadback {
-    background-color: red;
+    background-color: #dc3545;
     margin-top: 2px;
     border-radius: 5px;
 }

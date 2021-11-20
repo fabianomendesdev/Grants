@@ -8,7 +8,7 @@ $errors = [];
 
 if(!empty($_POST)){
     try{
-        $data = new Data($_POST);
+        $data = new Data(['title' => $_POST['title'], 'abstract' => $_POST['abstract'], 'areas' => $_POST['areas'], 'type' => $_POST['type'], 'matter' => $_POST['mat']]);
         $data->validateInputs();
         $_SESSION['data'] = [
             'title' => $data->title,

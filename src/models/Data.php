@@ -67,6 +67,18 @@ class Data extends Model {
         if(count($errors) > 0){
             throw new AppArrayException($errors);
         }
+
+        if(strlen($this->title) > 50) {
+            $errors['title'] = "O título é muito grande!";
+        }
+
+        if(strlen($this->abstract) > 200) {
+            $errors['title'] = "O resumo é muito grande!";
+        }
+
+        if(count($errors) > 0){
+            throw new AppArrayException($errors);
+        }
     }
 
     private function verifyAreas() {
@@ -92,7 +104,7 @@ class Data extends Model {
     private function verifyMaterias() {
         $materias = ['mat', 'por', 'his', 'geo', 'bio', 'qui','fis'];
         foreach($materias as $element){
-            if($this->mat == $element){
+            if($this->matter == $element){
                 return true;
             }
         }
