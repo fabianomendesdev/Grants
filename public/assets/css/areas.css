@@ -317,7 +317,7 @@
     background-position: center;
     background-size: cover;
     position: absolute;
-    z-index: 100;
+    z-index: 1;
 }
 
 .buttons-scroll:hover {

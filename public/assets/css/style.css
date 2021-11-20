@@ -134,6 +134,7 @@ body{
 
 .toggle .menu-toggle{
     display: none;
+    z-index: 200;
 }
 
 .menu-toggle {
