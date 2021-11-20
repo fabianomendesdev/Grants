@@ -6,7 +6,7 @@
 
 .main-section {
     width: 539px;
-    min-height: 314px;
+    min-height: 100px;
     background-color: var(--color6);
     padding: 60px 30px;
     border-radius: 20px;
@@ -20,4 +20,21 @@
 
 .buttons {
     margin-top: 60px;
+}
+
+
+@media(max-width: 565px){
+    .main-section {
+        width: 100%;
+    }
+}
+
+@media(max-width: 285px){
+    .main-section {
+        padding: 20px 10px;
+    }
+
+    .buttons {
+        margin-top: 40px;
+    }
 }

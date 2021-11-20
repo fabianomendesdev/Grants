@@ -15,7 +15,7 @@ if(!empty($_POST)){
             'abstract' => $data->abstract,
             'areas' => $data->areas,
             'type' => $data->type,
-            'mat' => $data->mat
+            'mat' => $data->matter
         ];
         header("Location: addContent");
     }catch(AppArrayException $e){

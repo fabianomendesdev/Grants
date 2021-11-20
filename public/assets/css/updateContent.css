@@ -45,3 +45,16 @@
 textarea {
     resize: none;
 }
+
+@media(max-width: 570px){
+    .main-section {
+        width: 100%;
+    }
+}
+
+@media(max-width: 570px){
+    .main-section {
+        margin: 30px 5px;
+        padding: 30px 20px;
+    }
+}

@@ -33,6 +33,11 @@
     height: 710px;
 }
 
+.section-video iframe {
+    width: 100%;
+    height: 100%;
+}
+
 .section-pdf {
     display: flex;
     justify-content: center;
