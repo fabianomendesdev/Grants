@@ -1,41 +1,56 @@
+<? if(!$is_admin): ?>
+    <style>
+        .div-resultModel {
+        grid-template-rows: 1fr 1fr 80px;
+        grid-template-areas: 
+        "title"
+        "abstract"
+        "matter"
+        ;
+    }
+    </style>
+<? endif ?>
 <main class="main">
     <div class="container-md">
-        <div class="div-subjects">
-            <ul>
-                <?php
-                    if(empty($_GET['mat'])){
-                        $_GET['mat'] = 'all';
-                    }
-
-                    if(empty($_GET['a'])){
-                        $_GET['a'] = 'all';
-                    }
-                ?>
-                <a href="areas?a=<?= $_GET['a'] ?>&mat=all">
-                    <li <?= $_GET['mat'] == 'all' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Tudo</li>
-                </a>
-                <a href="areas?a=<?= $_GET['a'] ?>&mat=mat">
-                    <li <?= $_GET['mat'] == 'mat' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Matématica</li>
-                </a>
-                <a href="areas?a=<?= $_GET['a'] ?>&mat=por">
-                    <li <?= $_GET['mat'] == 'por' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Português</li>
-                </a>
-                <a href="areas?a=<?= $_GET['a'] ?>&mat=his">
-                    <li <?= $_GET['mat'] == 'his' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>História</li>
-                </a>
-                <a href="areas?a=<?= $_GET['a'] ?>&mat=geo">
-                    <li <?= $_GET['mat'] == 'geo' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Geografia</li>
-                </a>
-                <a href="areas?a=<?= $_GET['a'] ?>&mat=bio">
-                    <li <?= $_GET['mat'] == 'bio' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Biologia</li>
-                </a>
-                <a href="areas?a=<?= $_GET['a'] ?>&mat=qui">
-                    <li <?= $_GET['mat'] == 'qui' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Química</li>
-                </a>
-                <a href="areas?a=<?= $_GET['a'] ?>&mat=fis">
-                    <li <?= $_GET['mat'] == 'fis' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Física</li>
-                </a>
-            </ul>
+        <div class="container-subjects">
+            <button class="buttons-scroll" id="scroll-left" onclick="scrollTo(0, 600)"></button>
+            <div class="div-subjects">
+                <ul>
+                    <?php
+                        if(empty($_GET['mat'])){
+                            $_GET['mat'] = 'all';
+                        }
+                        if(empty($_GET['a'])){
+                            $_GET['a'] = 'all';
+                        }
+                    ?>
+                    <a href="areas?a=<?= $_GET['a'] ?>&mat=all#all">
+                        <li id="all" <?= $_GET['mat'] == 'all' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Tudo</li>
+                    </a>
+                    <a href="areas?a=<?= $_GET['a'] ?>&mat=mat#mat">
+                        <li id="mat" <?= $_GET['mat'] == 'mat' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Matématica</li>
+                    </a>
+                    <a id="por" href="areas?a=<?= $_GET['a'] ?>&mat=por#por">
+                        <li <?= $_GET['mat'] == 'por' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Português</li>
+                    </a>
+                    <a id="his" href="areas?a=<?= $_GET['a'] ?>&mat=his#his">
+                        <li <?= $_GET['mat'] == 'his' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>História</li>
+                    </a>
+                    <a id="geo" href="areas?a=<?= $_GET['a'] ?>&mat=geo#geo">
+                        <li <?= $_GET['mat'] == 'geo' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Geografia</li>
+                    </a>
+                    <a id="bio" href="areas?a=<?= $_GET['a'] ?>&mat=bio#bio">
+                        <li <?= $_GET['mat'] == 'bio' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Biologia</li>
+                    </a>
+                    <a id="qui" href="areas?a=<?= $_GET['a'] ?>&mat=qui#qui">
+                        <li <?= $_GET['mat'] == 'qui' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Química</li>
+                    </a>
+                    <a href="areas?a=<?= $_GET['a'] ?>&mat=fis#fis">
+                        <li id="fis" <?= $_GET['mat'] == 'fis' ? 'style="background-color: #A61731; color: #FFF;"' : '' ?>>Física</li>
+                    </a>
+                </ul>
+            </div>
+            <button class="buttons-scroll" id="scroll-right"></button>
         </div>
         <div class="div-navigationAndSearch">
             <p><a href="home">Home</a> <span>></span> <a href="#"><?php
@@ -84,7 +99,8 @@
                             </div>
                             
                             <div class="div-matter">
-                                <p class="matter"><?php
+                                <?php $colorList = ['A61731', 'BF2626', 'BF4E24', 'C96A4C', 'D98236']; ?>
+                                <p class="matter" style="background-color: #<?= $colorList[$i++] ?>;"><?php
                                     switch($value['matter']){
                                         case 'mat':
                                             echo "Matemática";
