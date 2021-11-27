@@ -1,13 +1,15 @@
 <? if(!$is_admin): ?>
     <style>
-        .div-resultModel {
-        grid-template-rows: 1fr 1fr 80px;
-        grid-template-areas: 
-        "title"
-        "abstract"
-        "matter"
-        ;
-    }
+        @media(max-width: 430px){
+            .div-resultModel {
+                grid-template-rows: 1fr 1fr 80px;
+                grid-template-areas: 
+                "title"
+                "abstract"
+                "matter"
+                ;
+            }
+        }
     </style>
 <? endif ?>
 <main class="main">
