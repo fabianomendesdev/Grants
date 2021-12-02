@@ -27,7 +27,7 @@
         }
 
         .main h1 {
-            margin-bottom: 100px;
+            margin-bottom: 50px;
             font-size: 45px;
             font-family: 'Press Start 2P', cursive;
             background-color: #FFF;
