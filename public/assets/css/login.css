@@ -48,7 +48,7 @@
 .div-imglogin > img {
     transform: translateY(0px);
     animation: float 6s ease-in-out infinite;
-    height: 400px;
+    height: 200px;
 }
 
 .invalid-feadback {
