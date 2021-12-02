@@ -7,7 +7,7 @@ class Database {
         $conn = new mysqli($env['host'], $env['username'], $env['password'], $env['database']);
 
         if($conn->connect_error){
-            die(loadTemplateView("template/serverDown", "Grants: Erro", ['serverDown'], ['menu-toggle'], false));
+            throw new ErrorBD("212");
         }
 
         return $conn;
