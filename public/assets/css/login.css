@@ -107,6 +107,11 @@
     .div-imglogin > img {
         width: 30rem;
     }
+
+    .div-login {
+        height: 350px;
+        width: 400px;
+    }
 }
 
 @media (max-width: 991px) {

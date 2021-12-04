@@ -23,6 +23,7 @@
                             <?php if($is_admin  ): ?>
                             <li><a href="formContent">Adicionar conteúdo</a></li>
                             <?php endif ?>
+                            <li><a href="about">Sobre</a></li>
                             <li><a href="#">Chat</a></li>
                             <li><a href="logout"><i class="icofont-logout"></i>Sair</a></li>
                         </ul>

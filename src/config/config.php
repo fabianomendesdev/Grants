@@ -19,3 +19,4 @@ require_once(realpath(MODEL_PATH . '/Model.php'));
 require_once(realpath(MODEL_PATH . '/User.php'));
 require_once(realpath(EXCEPTION_PATH . '/AppException.php'));
 require_once(realpath(EXCEPTION_PATH . '/AppArrayException.php'));
+require_once(realpath(EXCEPTION_PATH . '/ErrorBD.php'));

@@ -26,4 +26,10 @@ foreach($array_uri as $key => $letter){
     }
 }
 
-require_once(CONTROLLER_PATH . "/$uri.php");
+try {
+    require_once(CONTROLLER_PATH . "/$uri.php");
+}catch (ErrorBD $e){
+    session_start();
+    $_SESSION['error'] = $e->getMessage();
+    require(TEMPLATE_PATH. "/serverDown.php");
+}
