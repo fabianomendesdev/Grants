@@ -22,6 +22,7 @@
                             <li><a href="#">Quem somos ?</a></li>
                             <?php if($is_admin  ): ?>
                             <li><a href="formContent">Adicionar conteúdo</a></li>
+                            <li><a href="managerUsers">Gerenciar Usuários</a></li>
                             <?php endif ?>
                             <li><a href="about">Sobre</a></li>
                             <li><a href="#">Chat</a></li>

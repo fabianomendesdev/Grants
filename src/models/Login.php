@@ -6,6 +6,9 @@ class Login extends Model {
         $user = User::getOne(['email' => $this->email]);
         if(isset($user)){
             if(password_verify($this->password, $user->password)){
+                if(!$user->active){
+                    throw new AppException("Usuário desativado!");
+                }
                 return $user;
             }
         }

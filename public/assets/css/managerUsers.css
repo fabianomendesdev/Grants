@@ -1,0 +1,31 @@
+.main .container-md {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 20px;
+}
+
+.main .container-md .main-section {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main .container-md .main-section form {
+    width: 100%;
+}
+
+.main .container-md .main-section form .item {
+    background-color: var(--color6);
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 15px;
+    padding: 15px 10px;
+}
+
+@media (max-width: 770px) {
+    .main .container-md .main-section {
+        width: 100%;
+    } 
+}
