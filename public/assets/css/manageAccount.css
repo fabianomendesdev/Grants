@@ -1,3 +1,7 @@
+.main .container-md {
+    padding: 35px 5px;
+}
+
 .invalid-feadback {
     background-color: var(--color6);
     animation: showErrors 0.4s ease-in;
