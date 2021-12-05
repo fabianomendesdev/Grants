@@ -40,15 +40,28 @@ if(isset($_GET['update']) && !empty($_GET['update']) && is_int(intval(base64_dec
 
                     $data = new Data(['path' => '','link' => $link, 'title' => $_POST['title'], 'abstract' => $_POST['abstract'], 'areas' => $_POST['areas'], 'type' => "video", 'matter' => $_POST['mat'], 'id' => $data->id]);
                     $data->validateInputs();
+
+                    $dataOld = Data::getOne(['id' => $data->id]);
+                    if($dataOld->type == 'pdf'){
+                        unlink(realpath(dirname(__FILE__).'/../../data/pdf')."/$dataOld->path");
+                    }
+                                        
                     $data = $data->update();
                 }else if((!empty($_FILES['pdf']['name']) && !empty($_FILES['pdf']['type']))){
                     $pdfName = savePDFByFile($_FILES['pdf']);
                     $data = new Data(['path' => $pdfName,'link' => '', 'title' => $_POST['title'], 'abstract' => $_POST['abstract'], 'areas' => $_POST['areas'], 'type' => "pdf", 'matter' => $_POST['mat'], 'id' => $data->id]);
+
                     $data->validateInputs();
+
+                    $dataOld = Data::getOne(['id' => $data->id]);
+                    if($dataOld->path){
+                        unlink(realpath(dirname(__FILE__).'/../../data/pdf')."/$dataOld->path");
+                    }
+
                     $data = $data->update();
                 }else{
-                    $data = new Data(['title' => $_POST['title'], 'abstract' => $_POST['abstract'], 'areas' => $_POST['areas'], 'type' => "pdf", 'matter' => $_POST['mat'], 'id' => $data->id]);
-                    $data->validateInputs();
+                    $data = new Data(['title' => $_POST['title'], 'abstract' => $_POST['abstract'], 'areas' => $_POST['areas'], 'matter' => $_POST['mat'], 'id' => $data->id]);
+                    $data->validateInputsNotType();
                     $data = $data->update();
                 }
                 redirect();
@@ -63,9 +76,13 @@ if(isset($_GET['update']) && !empty($_GET['update']) && is_int(intval(base64_dec
     loadTemplateViewWithGetOne('updateContent', "Grants: Update", $data, ['updateContent'], ['menu-toggle'], true, '', $errors);
 }elseif(isset($_GET['delete']) && !empty($_GET['delete']) && is_int(intval(base64_decode($_GET['update'])))){
     if(isset($_POST['confirm']) && !!intval($_POST['confirm'])){
-        $data = new Data(['id' => base64_decode($_GET['delete'])]);
-        $data->delete();
+        $data = Data::getOne(['id' => base64_decode($_GET['delete'])]);
         
+        if($data->type == 'pdf'){
+            unlink(realpath(dirname(__FILE__).'/../../data/pdf')."/$data->path");
+        }
+
+        $data->delete();
         redirect();
     }elseif(isset($_POST['confirm']) && !(!!intval($_POST['confirm']))){
         redirect();

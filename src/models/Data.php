@@ -41,6 +41,42 @@ class Data extends Model {
 
     }
 
+    public function validateInputsNotType() {
+        $errors = [];
+
+        if(!$this->title){
+            $errors['title'] = "O campo título é obrigatório!";
+        }
+
+        if(!$this->abstract){
+            $errors['abstract'] = "O campo resumo é obrigatório!";
+        }
+
+        if(!$this->verifyAreas()){
+            $errors['areas'] = "Este campo é obrigatório!";
+        }
+
+        if(!$this->verifyMaterias()){
+            $errors['mat'] = "Este campo é obrigatório!";
+        }
+
+        if(count($errors) > 0){
+            throw new AppArrayException($errors);
+        }
+
+        if(strlen($this->title) > 50) {
+            $errors['title'] = "O título é muito grande!";
+        }
+
+        if(strlen($this->abstract) > 200) {
+            $errors['title'] = "O resumo é muito grande!";
+        }
+
+        if(count($errors) > 0){
+            throw new AppArrayException($errors);
+        }
+    }
+
     public function validateInputs() {
         $errors = [];
 

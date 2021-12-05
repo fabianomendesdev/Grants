@@ -5,6 +5,9 @@ function savePDFByFile($filePDF){
         );
         $nameFile = str_replace(" ","_",$filePDF['name']);
         $nameFile = strtr($nameFile, $charactersWithoutAccents);
+        $nameFile = strtr($nameFile, [".pdf" => '']);
+        $nameFile = $nameFile.time().'.pdf';
+
         if($filePDF['type'] != "application/pdf"){
             throw new AppException('Envie um PDF!');
         }
