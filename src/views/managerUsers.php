@@ -17,6 +17,7 @@
                     <p>Email: <?= $item->email ?></p>
                     <p>Data de registro: <?= date("H:i:s  -  d/m/Y", $item->registrationDate) ?></p>
                     <p>Último acesso: <?= is_null($item->lastAcess) ? "Sem acesso" : date("H:i:s  -  d/m/Y", $item->lastAcess) ?></p>
+                    <p>Quantidade de acessos: <?= $item->qtdAccess ?></p>
                     <input type="hidden" name="u" value="<?= base64_encode($item->id) ?>">
                     <div class="form-check form-switch mb-2">
                         <input class="form-check-input" type="checkbox" role="switch" id="is_admin" name="is_admin" <?= $item->is_admin ? 'checked' : '' ?>>

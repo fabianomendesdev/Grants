@@ -28,8 +28,12 @@ function requireValidSession($require_admin){
             }
         }
     }
-    $user->lastAcess = time();
-    $_SESSION['user'] = $user->update();
+
+    if(strval(date('Y-m-d', $user->lastAcess)) !== strval(date('Y-m-d', time()))){
+        $userLogin->qtdAccess++;    
+    }
+    $userLogin->lastAcess = time();
+    $_SESSION['user'] = $userLogin->update();
     $_COOKIE['user'] = $_SESSION['user'];
 }
 

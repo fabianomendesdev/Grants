@@ -69,7 +69,7 @@ class Data extends Model {
         }
 
         if(strlen($this->abstract) > 200) {
-            $errors['title'] = "O resumo é muito grande!";
+            $errors['abstract'] = "O resumo é muito grande!";
         }
 
         if(count($errors) > 0){
@@ -109,7 +109,7 @@ class Data extends Model {
         }
 
         if(strlen($this->abstract) > 200) {
-            $errors['title'] = "O resumo é muito grande!";
+            $errors['abstract'] = "O resumo é muito grande!";
         }
 
         if(count($errors) > 0){

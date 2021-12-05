@@ -28,5 +28,6 @@
                 </section>
             </a>
         </section>
+        <a class="link-license" href="https://storyset.com/" target="_blank">illustrations by Storyset</a>
     </div>
 </main>

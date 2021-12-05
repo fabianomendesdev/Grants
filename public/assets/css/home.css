@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     padding: 35px 10px;
+    position: relative;
 }
 
 .section-areas {
@@ -179,6 +180,19 @@
 .section-areas .area-classes img {
     width: 254px;
     height: 254px;
+}
+
+.link-license {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    color: var(--color6);
+    text-decoration: none;
+}
+
+.link-license:hover {
+    text-decoration: underline;
+    color: var(--color6);
 }
 
 @media (max-width: 1199px) {

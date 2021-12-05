@@ -68,7 +68,7 @@
 
                 <div class="mb-3">
                     <label for="link" class="form-label">Envie o link do vídeo</label>
-                    <input class="form-control <?= isset($errors['link']) ? 'is-invalid' : '' ?>" type="url" name="link" id="link" placeholder="Informe o link completo do vídeo">
+                    <input class="form-control <?= isset($errors['link']) ? 'is-invalid' : '' ?>" type="url" name="link" id="link" placeholder="Informe o link completo do vídeo" value="<?= isset($_POST['link']) ? $_POST['link'] : '' ?>">
                 </div>
                 <?php if(isset($errors['link'])): ?>
                     <div class="div-errors mb-3">
