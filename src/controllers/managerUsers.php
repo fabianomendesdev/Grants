@@ -6,9 +6,9 @@ $message = '';
 $data = [];
 $qtdItems = 6;
 
-if(!empty($_GET['u'])){
+if(!empty($_POST['u'])){
     try {
-        $user = new User(['id' => intval(base64_decode($_GET['u'])), 'active' => $_POST['active'] == 'on' ? 1 : 0, 'is_admin' => $_POST['is_admin'] == 'on' ? 1 : 0]);
+        $user = new User(['id' => intval(base64_decode($_POST['u'])), 'active' => $_POST['active'] == 'on' ? 1 : 0, 'is_admin' => $_POST['is_admin'] == 'on' ? 1 : 0]);
         $user->update();
     }catch(AppException $e){
         $message = $e->getMessage();
@@ -24,6 +24,7 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
     $conn->close();
     $email = str_replace(array("<","WHERE","where",">","=","?"), "", $email);
     $result = Database::getResultFromQuery("SELECT * FROM users WHERE email like '%".$email."%' ORDER BY is_admin desc");
+    unset($_POST['u']);
 }else{
     $result = Database::getResultFromQuery("SELECT * FROM users ORDER BY is_admin desc");
 }

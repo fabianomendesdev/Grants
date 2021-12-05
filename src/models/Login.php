@@ -12,7 +12,7 @@ class Login extends Model {
                 return $user;
             }
         }
-        throw new AppException("Email ou senha incorretos!");
+        throw new AppException("Email e/ou senha incorretos!");
     }
 
     public function validate(){
