@@ -1,7 +1,7 @@
 <header class="header">
     <div class="container-md">
         <div class="div-logo">
-            <a href="home"><img src="assets/img/logo.svg" alt="Logo" class="logo"></a>
+            <a href="home"><img src="assets/img/logo.png" alt="Logo" class="logo"></a>
         </div>
         <div class="div-title">
             <h1>GRANTS</h1> 
