@@ -28,6 +28,9 @@ function requireValidSession($require_admin){
             }
         }
     }
+    $user->lastAcess = time();
+    $_SESSION['user'] = $user->update();
+    $_COOKIE['user'] = $_SESSION['user'];
 }
 
 function validSession(){

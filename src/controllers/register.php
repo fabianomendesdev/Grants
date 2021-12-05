@@ -7,6 +7,7 @@ $errors = [];
 if(verify()){
     try{
         $user = new User($_POST);
+        $user->registrationDate = time();
         $user->insert();    
         header("Location: login?email={$user->email}");
     }catch(AppArrayException $e){
