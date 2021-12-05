@@ -19,7 +19,7 @@
                         <ul class="menu-list">
                             <li><a href="editProfile">Editar perfil</a></li>
                             <li><a href="manageAccount">Gerenciar Conta</a></li>
-                            <li><a href="#">Quem somos ?</a></li>
+                            <li><a href="about">Quem somos ?</a></li>
                             <?php if($is_admin  ): ?>
                             <li><a href="formContent">Adicionar conteúdo</a></li>
                             <li><a href="managerUsers">Gerenciar Usuários</a></li>

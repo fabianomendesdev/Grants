@@ -1,9 +1,18 @@
 <main class="main">
     <div class="container-md">
         <section class="main-section">
+            <div class="titleAndQuery">
+                <h2>Gerenciar Usuários</h2>
+                <form action="#" method="post">
+                    <div class='form-control div-search-form'>
+                        <input class="form-control input-search" style="border: none; box-shadow: none;" name="search" placeholder="Pesquisar por email" value="<?= isset($_POST['search']) ? $_POST['search'] : '' ?>">
+                        <button class="button-search"></button>
+                    </div>    
+                </form>
+            </div>
             <?php foreach($data as $item): ?>
-                <form action="?u=<?= base64_encode($item->id) ?>" method="post">
-                <div class="item">
+                <form id="<?= $item->email ?>" action="?u=<?= base64_encode($item->id) ?>#<?= $item->email ?>" method="post">
+                <div class="item" <?= !empty($_GET['u']) && base64_decode($_GET['u']) == $item->id ? "style='background-color: #d8d8d8;'" : '' ?>>
                     <p>Nome: <?= $item->name ?></p>
                     <p>Email: <?= $item->email ?></p>
                     <div class="form-check form-switch mb-2">

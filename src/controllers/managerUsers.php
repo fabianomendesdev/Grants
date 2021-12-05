@@ -15,7 +15,18 @@ if(!empty($_GET['u'])){
     }
 }
 
-$result = Database::getResultFromQuery("SELECT * FROM users");
+if(isset($_POST['search']) && !empty($_POST['search'])){
+    $email = $_POST['search'];
+    $email = strip_tags(trim($email));
+    $email = htmlspecialchars($email);
+    $conn = Database::getConnection();
+    $email = mysqli_real_escape_string($conn, $email);
+    $conn->close();
+    $email = str_replace(array("<","WHERE","where",">","=","?"), "", $email);
+    $result = Database::getResultFromQuery("SELECT * FROM users WHERE email like '%".$email."%' ORDER BY is_admin desc");
+}else{
+    $result = Database::getResultFromQuery("SELECT * FROM users ORDER BY is_admin desc");
+}
 
 if($result->num_rows > 0){
     while($item = $result->fetch_assoc()){
@@ -23,4 +34,4 @@ if($result->num_rows > 0){
     }
 }
 
-loadTemplateViewWithResultFromSearch($qtdItems,"managerUsers", "Grants: Gerenciar Usuários", $data, ['managerUsers'], ['menu-toggle'], true, $message);
+loadTemplateViewWithResultFromSearch($qtdItems,"managerUsers", "Grants: Gerenciar Usuários", $data, ['managerUsers'], ['menu-toggle', 'div-search-control'], true, $message);

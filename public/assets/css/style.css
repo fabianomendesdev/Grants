@@ -9,7 +9,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -66,6 +66,9 @@ body{
 .header > .container-md > .div-logo > a > .logo {
     margin-top: 5px;
     height: 90px;
+    transform: translateY(0px);
+    opacity: 100%;
+    animation: drop 0.6s ease-in;
 }
 
 .header > .container-md > .div-logo > a > .logo:hover {
@@ -85,14 +88,36 @@ body{
     font-style: normal;
     font-weight: 500;
     font-size: 68px;
-    line-height: 77px;
-    text-shadow: 10px 5px 8px rgba(0, 0, 0, 0.25);
+    line-height: 77px;  
+    color: #FFFFFF;
+    text-shadow: 0 0 5px #FFF, 0 0 20px #e9e9e9, -40px -40px 0px rgba(0,0,0,0);
+    transform: translateY(0px);
+    opacity: 100%;
+    animation: drop 0.6s ease-in;
+}
+
+@keyframes drop {
+    0% {
+        opacity: 0%;
+        transform: translateY(-80px);
+    }
+
+    80% {
+        opacity: 100%;
+    }
 }
 
 .header > .container-md > .widgets {
     display: flex;
     justify-content: center;
     align-items: center;
+    
+}
+
+.header > .container-md > .widgets img {
+    transform: translateY(0px);
+    opacity: 100%;
+    animation: drop 0.6s ease-in;
 }
 
 .header > .container-md > .widgets .conversation {
