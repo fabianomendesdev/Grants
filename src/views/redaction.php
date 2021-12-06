@@ -11,6 +11,20 @@
                 </div>
             </form>
         </div>
-        <h1>Redação</h1>
+        <section class="main-section">
+            <ul>
+                <li class="li-elements">
+                    <div class="top">
+                        <div class="divArrow"></div>
+                        <img class="img-folder" src="assets/img/folder.png" alt="Folder"><span>fdfdfdfdf</span>
+                    </div>
+                    <div class="bottom">
+                        <ul>
+                            <li><a href="#"><img src="assets/img/iconPDF.png" alt="">dfdfdfdfdf</a></li>
+                        </ul>
+                    </div>
+                </li>  
+            </ul>
+        </section>
     </div>
 </main>

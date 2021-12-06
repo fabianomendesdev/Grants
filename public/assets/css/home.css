@@ -43,6 +43,10 @@
     animation: redaction-show 1s ease-in;
 }   
 
+.section-redaction a .div-redaction:hover {
+    transform: scale(0.99);
+}
+
 @keyframes redaction-show {
     0%{
         opacity: 0%;
