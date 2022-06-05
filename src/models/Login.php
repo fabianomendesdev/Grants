@@ -15,7 +15,7 @@ class Login extends Model {
         throw new AppException("Email e/ou senha incorretos!");
     }
 
-    public function validate(){
+    public function validate() { 
         $email = $this->email;
         $password = $this->password;
         $errors = [];
